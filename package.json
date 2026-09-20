@@ -1,0 +1,14 @@
+{
+  "name": "spatial-collab-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Spatial-style collaborative canvas prototype",
+  "type": "module",
+  "scripts": {
+    "dev": "node server/server.js",
+    "start": "node server/server.js",
+    "test": "node --test server/test/server.test.js",
+    "test:server": "node --test server/test/server.test.js",
+    "check": "node --check server/index.js && node --check server/server.js && node --check client/app.js"
+  }
+}

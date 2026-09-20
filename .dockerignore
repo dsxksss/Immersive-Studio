@@ -1,0 +1,6 @@
+.git
+server/data
+work
+outputs
+node_modules
+.env
