@@ -42,6 +42,7 @@
   let joined = false;
   let objects = [];
   let trashItems = [];
+  let undoStack = [];
   let selected = null;
   let selectedIds = new Set();
   let lastCardTap = { id: null, time: 0 };
@@ -103,6 +104,8 @@
   function saveObjects() { try { localStorage.setItem("spatial:room:" + roomId, JSON.stringify(objects)); } catch (_) {} }
   function loadTrash() { try { return JSON.parse(localStorage.getItem("spatial:trash:" + roomId) || "[]"); } catch (_) { return []; } }
   function saveTrash() { try { localStorage.setItem("spatial:trash:" + roomId, JSON.stringify(trashItems)); } catch (_) {} }
+  function snapshotState() { undoStack.push({ objects: JSON.parse(JSON.stringify(objects)), trash: JSON.parse(JSON.stringify(trashItems)) }); if (undoStack.length > 30) undoStack.shift(); }
+  function undoLast() { const previous = undoStack.pop(); if (!previous) return toast(lang === "zh" ? "没有可撤回的操作" : "Nothing to undo"); objects = previous.objects; trashItems = previous.trash; saveObjects(); saveTrash(); closePanel(); renderObjects(); toast(lang === "zh" ? "已撤回" : "Undone"); }
   function escapeHtml(s) { return String(s || "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c])); }
   function visibleObjects() { return openedFolderId ? objects.filter(o => o.id === openedFolderId || o.folderId === openedFolderId) : objects.filter(o => !o.folderId); }
   function objectById(id) { return objects.find(o => o.id === id); }
@@ -137,7 +140,13 @@
     $("#zoom-in").onclick = () => zoomAt(1.12); $("#zoom-out").onclick = () => zoomAt(.89); $("#fit-btn").onclick = fitCanvas;
     $("#invite-btn").onclick = () => { const link = location.origin + location.pathname + "?room=" + encodeURIComponent(roomId) + "&name=" + encodeURIComponent(roomName) + "&lang=" + lang; navigator.clipboard?.writeText(link); toast(t("copied")); };
     document.addEventListener("click", e => { if (!e.target.closest(".context-menu")) hideContextMenu(); });
-    document.addEventListener("keydown", e => { if (e.key === "Escape") { hideContextMenu(); closePanel(); } });
+    document.addEventListener("keydown", e => {
+      const editing = e.target.closest?.("textarea,input,[contenteditable=true]");
+      const mod = e.ctrlKey || e.metaKey;
+      if (mod && !editing && (e.key.toLowerCase() === "z" || e.key.toLowerCase() === "c")) { e.preventDefault(); undoLast(); return; }
+      if (mod && !editing && e.key.toLowerCase() === "y") { e.preventDefault(); undoLast(); return; }
+      if (e.key === "Escape") { hideContextMenu(); closePanel(); }
+    });
   }
   function showUtilityMenu(e, mode) {
     e.stopPropagation(); const menu = $('#context-menu'); const r = e.currentTarget.getBoundingClientRect();
@@ -166,7 +175,7 @@
       results.querySelectorAll('button').forEach(b => b.onclick = () => { hideContextMenu(); const o = objectById(b.dataset.result); if (o.kind === 'folder') openFolder(o); else openPanel(o); });
     }; input.focus(); }
   }
-  function showTrashMenu() { const menu = $("#context-menu"); const rows = trashItems.length ? trashItems.map(item => `<button data-restore="${item.id}">${icon("undo")} ${escapeHtml(item.title || item.caption || kindLabel(item.kind))}<span>${t("restore")}</span></button>`).join("") : `<div class="trash-empty">${lang === "zh" ? "回收站为空" : "Trash is empty"}</div>`; menu.innerHTML = `<div class="context-title">${icon("trash")} ${t("trash")}</div>${rows}${trashItems.length ? `<div class="context-separator"></div><button data-empty-trash>${t("emptyTrash")}</button>` : ""}`; menu.classList.add("open"); menu.querySelectorAll("[data-restore]").forEach(b => b.onclick = () => { const i = trashItems.findIndex(x => x.id === b.dataset.restore); if (i >= 0) { objects.push(trashItems.splice(i,1)[0]); saveTrash(); saveObjects(); renderObjects(); hideContextMenu(); toast(t("restore")); } }); menu.querySelector("[data-empty-trash]")?.addEventListener("click", () => { trashItems = []; saveTrash(); hideContextMenu(); }); }
+  function showTrashMenu() { const menu = $("#context-menu"); const rows = trashItems.length ? trashItems.map(item => `<button data-restore="${item.id}">${icon("undo")} ${escapeHtml(item.title || item.caption || kindLabel(item.kind))}<span>${t("restore")}</span></button>`).join("") : `<div class="trash-empty">${lang === "zh" ? "回收站为空" : "Trash is empty"}</div>`; menu.innerHTML = `<div class="context-title">${icon("trash")} ${t("trash")}</div>${rows}${trashItems.length ? `<div class="context-separator"></div><button data-empty-trash>${t("emptyTrash")}</button>` : ""}`; menu.classList.add("open"); menu.querySelectorAll("[data-restore]").forEach(b => b.onclick = () => { const i = trashItems.findIndex(x => x.id === b.dataset.restore); if (i >= 0) { snapshotState(); objects.push(trashItems.splice(i,1)[0]); saveTrash(); saveObjects(); renderObjects(); hideContextMenu(); toast(t("restore")); } }); menu.querySelector("[data-empty-trash]")?.addEventListener("click", () => { snapshotState(); trashItems = []; saveTrash(); hideContextMenu(); }); }
   function startSelection(e) { selectionDrag = { sx: e.clientX, sy: e.clientY }; drag = { selection: true }; const box = $("#selection-box"); if (box) { box.style.left = `${e.clientX}px`; box.style.top = `${e.clientY}px`; box.style.width = "0px"; box.style.height = "0px"; box.classList.add("open"); } $("#canvas-wrap")?.setPointerCapture(e.pointerId); }
   function updateSelection(e) { if (!selectionDrag) return; const box = $("#selection-box"); if (!box) return; const left = Math.min(selectionDrag.sx, e.clientX); const top = Math.min(selectionDrag.sy, e.clientY); box.style.left = `${left}px`; box.style.top = `${top}px`; box.style.width = `${Math.abs(e.clientX - selectionDrag.sx)}px`; box.style.height = `${Math.abs(e.clientY - selectionDrag.sy)}px`; }
   function finishSelection() { const start = selectionDrag; const box = $("#selection-box"); selectionDrag = null; drag = null; if (box) box.classList.remove("open"); if (!start) return; const end = { x: Number.parseFloat(box?.style.left || start.sx), y: Number.parseFloat(box?.style.top || start.sy) }; const rect = $("#canvas-wrap")?.getBoundingClientRect(); if (!rect) return; const x1 = Math.min(start.sx, end.x); const y1 = Math.min(start.sy, end.y); const x2 = Math.max(start.sx, end.x + Number.parseFloat(box?.style.width || "0")); const y2 = Math.max(start.sy, end.y + Number.parseFloat(box?.style.height || "0")); const ids = visibleObjects().filter(o => { const left = rect.left + view.x + o.x * view.scale; const top = rect.top + view.y + o.y * view.scale; const right = left + o.width * view.scale; const bottom = top + o.height * view.scale; return left < x2 && right > x1 && top < y2 && bottom > y1; }).map(o => o.id); selectedIds = new Set(ids); selected = ids.length === 1 ? ids[0] : null; renderObjects(); }
@@ -367,7 +376,7 @@
     if (action === "language") { setLanguage(lang === "zh" ? "en" : "zh"); return renderCanvas(); }
     if (!object) return;
     if (action === "open") return object.kind === "folder" ? openFolder(object) : openPanel(object);
-    if (action === "delete") { if (object.kind === "folder") objects.forEach(child => { if (child.folderId === object.id) child.folderId = undefined; }); objects = objects.filter(o => o.id !== object.id); trashItems.push({...object, folderId: undefined}); saveTrash(); selected = null; selectedIds = new Set(); saveObjects(); renderObjects(); sendUpdate([object.id]); return toast(t("movedTrash")); }
+    if (action === "delete") { snapshotState(); if (object.kind === "folder") objects.forEach(child => { if (child.folderId === object.id) child.folderId = undefined; }); objects = objects.filter(o => o.id !== object.id); trashItems.push({...object, folderId: undefined}); saveTrash(); selected = null; selectedIds = new Set(); saveObjects(); renderObjects(); sendUpdate([object.id]); return toast(t("movedTrash")); }
     if (action === "duplicate") { const clone = { ...object, id: uid(), x: object.x + 28, y: object.y + 28 }; objects.push(clone); selected = clone.id; saveObjects(); renderObjects(); sendUpdate(); return toast(t("duplicated")); }
     if (action === "edit") {
       selected = object.id;
