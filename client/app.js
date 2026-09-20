@@ -138,7 +138,7 @@
     wrap.addEventListener("pointercancel", () => { if (drag?.selection) finishSelection(); else if (drag?.group || drag?.card || drag?.resize) finishDrag(); else drag = null; });
     wrap.addEventListener("wheel", e => { e.preventDefault(); const factor = e.deltaY > 0 ? .92 : 1.09; const rect = wrap.getBoundingClientRect(); const px = e.clientX - rect.left, py = e.clientY - rect.top; const old = view.scale; const next = Math.max(.45, Math.min(1.8, old * factor)); view.x = px - (px - view.x) * next / old; view.y = py - (py - view.y) * next / old; view.scale = next; applyView(); }, { passive: false });
     $("#zoom-in").onclick = () => zoomAt(1.12); $("#zoom-out").onclick = () => zoomAt(.89); $("#fit-btn").onclick = fitCanvas;
-    $("#invite-btn").onclick = () => { const link = location.origin + location.pathname + "?room=" + encodeURIComponent(roomId) + "&name=" + encodeURIComponent(roomName) + "&lang=" + lang; navigator.clipboard?.writeText(link); toast(t("copied")); };
+    $("#invite-btn").onclick = copyInviteLink;
     document.addEventListener("click", e => { if (!e.target.closest(".context-menu")) hideContextMenu(); });
     document.addEventListener("keydown", e => {
       const editing = e.target.closest?.("textarea,input,[contenteditable=true]");
@@ -147,6 +147,29 @@
       if (mod && !editing && e.key.toLowerCase() === "y") { e.preventDefault(); undoLast(); return; }
       if (e.key === "Escape") { hideContextMenu(); closePanel(); }
     });
+  }
+  async function copyInviteLink() {
+    const url = new URL(location.pathname, location.origin);
+    url.search = new URLSearchParams({room: roomId, name: roomName, lang}).toString();
+    const link = url.href;
+    const legacyCopy = () => {
+      const field = document.createElement('textarea'); field.value = link;
+      field.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+      document.body.appendChild(field); field.focus(); field.select();
+      let copied = false;
+      try { copied = document.execCommand('copy'); } catch (_) {} finally { field.remove(); }
+      return copied;
+    };
+    let copied = false;
+    if (!navigator.clipboard?.writeText || !window.isSecureContext) copied = legacyCopy();
+    else { try { await navigator.clipboard.writeText(link); copied = true; } catch (_) { copied = legacyCopy(); } }
+    if (copied) { toast(t('copied')); return; }
+    document.querySelector('.share-dialog')?.remove();
+    const dialog = document.createElement('dialog'); dialog.className = 'share-dialog';
+    dialog.innerHTML = `<h2>${lang === 'zh' ? '共享空间' : 'Share space'}</h2><p>${lang === 'zh' ? '浏览器未允许自动复制，请选中链接后按 Ctrl/Cmd + C。' : 'Automatic copy was not allowed. Select the link and press Ctrl/Cmd + C.'}</p><input readonly aria-label="${lang === 'zh' ? '共享链接' : 'Share link'}"><button>${t('close')}</button>`;
+    document.body.appendChild(dialog); const input=dialog.querySelector('input'); input.value=link;
+    dialog.querySelector('button').onclick=()=>dialog.close(); dialog.addEventListener('close',()=>dialog.remove());
+    dialog.showModal(); input.focus(); input.select(); input.onclick=()=>input.select();
   }
   function showUtilityMenu(e, mode) {
     e.stopPropagation(); const menu = $('#context-menu'); const r = e.currentTarget.getBoundingClientRect();
@@ -372,7 +395,7 @@
     hideContextMenu();
     if (["note", "richText", "image", "link", "folder", "artboard"].includes(action)) return addObject(action, contextPoint);
     if (action === "fit") return fitCanvas();
-    if (action === "invite") return $("#invite-btn")?.click();
+    if (action === "invite") return copyInviteLink();
     if (action === "language") { setLanguage(lang === "zh" ? "en" : "zh"); return renderCanvas(); }
     if (!object) return;
     if (action === "open") return object.kind === "folder" ? openFolder(object) : openPanel(object);
