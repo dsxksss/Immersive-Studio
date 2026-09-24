@@ -31,6 +31,20 @@ npm run dev
 
 服务器使用 Node 24 `node:sqlite` 时保存 SQLite WAL；不支持 `node:sqlite` 的环境会回退到内存存储。`shared/protocol.ts` 保存共享类型定义。
 
+## TypeScript
+
+Sources live in TypeScript: `server/*.ts`, `client/app.ts`, and `shared/protocol.ts`.
+
+```bash
+npm install
+npm run check    # tsc --noEmit for server + client
+npm test
+npm run dev      # builds client/app.js then runs server via tsx
+npm run build    # emits dist/ (server) + client/app.js
+```
+
+The browser still loads `/app.js` (compiled from `client/app.ts`). Dev/build need the TypeScript toolchain; the compiled client and optional `dist/` server stay free of runtime npm deps beyond Node itself.
+
 ## 检查与测试
 
 ```bash
@@ -46,3 +60,28 @@ docker run --rm -p 8787:8787 spatial-collab
 ```
 
 生产环境请将 `SPATIAL_DATA_DIR` 挂载到持久化卷，并在反向代理上启用 WebSocket Upgrade。
+
+## Hybrid P2P (WebRTC + WebSocket)
+
+Same-room peers open a **WebRTC data channel** for low-latency awareness/cursors and object deltas. The existing WebSocket path remains the authority for persistence, late-join state, asset upload, signaling (`offer` / `answer` / `ice`), and automatic fallback when no data channel is open.
+
+### Verify with two tabs
+
+1. `npm run dev` — open `http://127.0.0.1:8787` in two browsers/tabs.
+2. Join the same room with different nicknames.
+3. Status pill may show **直连 / Direct** when the data channel is up, otherwise **中继 / Relay**.
+4. Drag a sticky in one tab — the other should follow in near real time.
+5. Upload an image — a card appears immediately with an in-panel progress bar.
+
+### STUN / TURN
+
+Default ICE uses Google STUN: `stun:stun.l.google.com:19302`.
+
+Optional TURN (symmetric NAT / corporate networks):
+
+- Set `localStorage` keys `spatial:turn-url`, `spatial:turn-username`, `spatial:turn-credential`, **or**
+- Assign `window.__SPATIAL_ICE_SERVERS__` to a full `RTCIceServer[]` before joining.
+
+Without TURN, some NATs will stay on WebSocket relay (still correct, higher latency).
+
+Protocol extras: `{ type: "signal", roomId, fromSessionId, toSessionId?, payload }` and `joined.peerSessionIds`.

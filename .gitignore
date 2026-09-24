@@ -1,8 +1,12 @@
 node_modules/
 server/data/
+dist/
 .env
 .env.*
 !.env.example
 work/
 outputs/
 .DS_Store
+*.tsbuildinfo
+client/app.js.map
+client/_xfer/

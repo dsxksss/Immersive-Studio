@@ -4,3 +4,4 @@ work
 outputs
 node_modules
 .env
+client/_xfer/

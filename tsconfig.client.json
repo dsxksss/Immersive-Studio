@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "None",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "strictNullChecks": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "client",
+    "outDir": "client",
+    "removeComments": false,
+    "sourceMap": true
+  },
+  "include": ["client/app.ts"],
+  "exclude": ["client/src/**", "node_modules"]
+}
