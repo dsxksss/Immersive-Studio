@@ -50,10 +50,10 @@
     let roomName = params.get("name") || (lang === "zh" ? "未命名空间" : "Untitled Space");
     const translations = {
         zh: {
-            joinEyebrow: "让想法拥有自己的空间", joinTitle: "一起创造\n下一件作品。", joinDescription: "在一张安静、无限的画布上，共同收集、整理和推进想法。", joinFoot: "为小团队与大问题而生", joinHeading: "加入空间", invited: "你受邀协作于", name: "你的昵称", namePlaceholder: "例如：小明", password: "房间密码", optional: "可选", passwordPlaceholder: "输入密码", enter: "进入空间", syncNote: "你的修改会与空间中的每个人实时同步。", canvasHint: "中键拖动画布 · 左键框选 · 滚轮缩放 · 圆点拖拽连接", createHere: "在这里创建", edit: "编辑内容", duplicate: "复制", delete: "删除", sticky: "便签", richText: "富文本", image: "图片", link: "链接", folder: "文件夹", trash: "回收站", restore: "恢复", emptyTrash: "清空回收站", artboard: "画板", items: "项", fit: "适配画布", invite: "复制邀请链接", language: "English", languageAction: "切换到 English", noteAdded: "已添加便签", documentAdded: "已添加文档", imageAdded: "已添加图片", linkAdded: "已添加链接", folderAdded: "已添加文件夹", artboardAdded: "已添加画板", copied: "邀请链接已复制", movedTrash: "已移入回收站", duplicated: "已复制", justNow: "刚刚", people: "人在线", onePerson: "1 人在线", newDocument: "新文档", writeTogether: "一起写点什么…", newVisual: "新视觉参考", newIdea: "一个新想法…", savedLink: "已保存链接", reference: "参考", imageCaptionPrompt: "输入图片说明", linkTitlePrompt: "输入链接标题", linkUrlPrompt: "输入链接地址", folderTitlePrompt: "输入文件夹名称", open: "打开面板", close: "关闭", back: "返回画布", moveIntoFolder: "已移入文件夹", folderEmpty: "文件夹为空", selectedCount: "已选择", selectionHint: "左键拖动可框选多个面板 · Ctrl/Cmd+G 建组/解组", panelInfo: "面板信息", resolution: "分辨率", filename: "文件名", date: "日期", createdOn: "创建于", dropIntoFolder: "拖入文件夹", incorrectPassword: "房间密码不正确", save: "保存", saved: "已保存，下次可从首页进入", savedRooms: "已保存的空间", saveSpace: "保存空间", untitledSpace: "未命名空间", cancel: "取消", apply: "应用", replaceImage: "替换图片", dropReplaceHint: "拖放新图片到此处替换", editImageTitle: "编辑图片", editLinkTitle: "编辑链接", editFolderTitle: "编辑文件夹", imageUpdated: "图片已更新", linkUpdated: "链接已更新", folderUpdated: "文件夹已更新", undone: "已撤回", redone: "已重做", nothingToUndo: "没有可撤回的操作", nothingToRedo: "没有可重做的操作", uploading: "上传中", uploadFailed: "上传失败", uploadRetry: "重试", p2pDirect: "直连", p2pRelay: "中继", captionLabel: "图片说明", linkTitleLabel: "链接标题", linkUrlLabel: "链接地址", folderTitleLabel: "文件夹名称", chooseImage: "选择图片", emptyArtboard: "空白画板", artboardEmptyHint: "打开后开始绘制", richTextDefault: "<h2>新文档</h2><p>一起写点什么…</p>", richTextSeed: "<h2>项目简报</h2><p>在这里共同推进想法，让故事慢慢成形。</p><p><strong>今天：</strong>收集参考、梳理结构，并分享第一版。</p>", switchWorkspace: "切换工作空间", workspaces: "工作空间", currentSpace: "当前空间", newWorkspace: "新建工作空间", openHome: "打开首页", noSavedSpaces: "暂无已保存的工作空间", saveCurrentHint: "可先保存当前空间，或新建一个", imagePasted: "已从剪贴板粘贴图片", noImageInClipboard: "剪贴板中没有图片", grouped: "已建组", ungrouped: "已解组", gridSnap: "网格吸附", gridSnapOn: "网格吸附：开", gridSnapOff: "网格吸附：关", alignLeft: "左对齐", alignCenterX: "水平居中", alignRight: "右对齐", alignTop: "顶对齐", alignCenterY: "垂直居中", alignBottom: "底对齐", distributeH: "水平分布", distributeV: "垂直分布", aligned: "已对齐", distributed: "已分布", tidyGrid: "一键整理", tidied: "已整理对齐", tidyNeedMore: "请先选择至少 2 个面板，或在画布上放置多张图片", openExternal: "新标签打开", reloadPage: "刷新", linkEmbedFailed: "此网站不允许嵌入预览", linkEmbedHint: "因安全策略无法在面板内显示，可在新标签中打开。", linkLoading: "加载网页…", todo: "待办", todoAdded: "已添加待办", todoTitle: "待办事项", todoItemPlaceholder: "添加事项…", todoEmpty: "暂无事项", todoEmptyHint: "在下方输入，按回车快速添加", connectHint: "从圆点拖到另一卡片可连接", edgeDeleted: "已删除连接", connected: "已连接", editLink: "编辑链接", linkDescLabel: "描述", moreActions: "更多操作", openFolder: "打开文件夹", folderPeekTitle: "文件夹内容", folderPeekHint: "双击或点下方按钮进入", folderPeekEmpty: "文件夹为空", mouseMode: "鼠标模式", mouseClick: "点击", mouseDrag: "拖拽", mouseModeClickOn: "鼠标：点击", mouseModeDragOn: "鼠标：拖拽", mouseModeHint: "Alt+拖拽可临时移动卡片"
+            joinEyebrow: "让想法拥有自己的空间", joinTitle: "一起创造\n下一件作品。", joinDescription: "在一张安静、无限的画布上，共同收集、整理和推进想法。", joinFoot: "为小团队与大问题而生", joinHeading: "加入空间", invited: "你受邀协作于", name: "你的昵称", namePlaceholder: "例如：小明", password: "房间密码", optional: "可选", passwordPlaceholder: "输入密码", enter: "进入空间", syncNote: "你的修改会与空间中的每个人实时同步。", canvasHint: "双指滚动平移 · ⌘/Ctrl+双指缩放 · 拖拽模式移动画布", createHere: "在这里创建", edit: "编辑内容", duplicate: "复制", delete: "删除", sticky: "便签", richText: "富文本", image: "图片", link: "链接", folder: "文件夹", trash: "回收站", restore: "恢复", emptyTrash: "清空回收站", artboard: "画板", items: "项", fit: "适配画布", invite: "复制邀请链接", language: "English", languageAction: "切换到 English", noteAdded: "已添加便签", documentAdded: "已添加文档", imageAdded: "已添加图片", linkAdded: "已添加链接", folderAdded: "已添加文件夹", artboardAdded: "已添加画板", copied: "邀请链接已复制", movedTrash: "已移入回收站", duplicated: "已复制", justNow: "刚刚", people: "人在线", onePerson: "1 人在线", newDocument: "新文档", writeTogether: "一起写点什么…", newVisual: "新视觉参考", newIdea: "一个新想法…", savedLink: "已保存链接", reference: "参考", imageCaptionPrompt: "输入图片说明", linkTitlePrompt: "输入链接标题", linkUrlPrompt: "输入链接地址", folderTitlePrompt: "输入文件夹名称", open: "打开面板", close: "关闭", back: "返回画布", moveIntoFolder: "已移入文件夹", folderEmpty: "文件夹为空", selectedCount: "已选择", selectionHint: "左键拖动可框选多个面板 · Ctrl/Cmd+G 建组/解组", panelInfo: "面板信息", resolution: "分辨率", filename: "文件名", date: "日期", createdOn: "创建于", dropIntoFolder: "拖入文件夹", incorrectPassword: "房间密码不正确", save: "保存", saved: "已保存，下次可从首页进入", savedRooms: "已保存的空间", saveSpace: "保存空间", untitledSpace: "未命名空间", cancel: "取消", apply: "应用", replaceImage: "替换图片", dropReplaceHint: "拖放新图片到此处替换", editImageTitle: "编辑图片", editLinkTitle: "编辑链接", editFolderTitle: "编辑文件夹", imageUpdated: "图片已更新", linkUpdated: "链接已更新", folderUpdated: "文件夹已更新", undone: "已撤回", redone: "已重做", nothingToUndo: "没有可撤回的操作", nothingToRedo: "没有可重做的操作", uploading: "上传中", uploadFailed: "上传失败", uploadRetry: "重试", p2pDirect: "直连", p2pRelay: "中继", captionLabel: "图片说明", linkTitleLabel: "链接标题", linkUrlLabel: "链接地址", folderTitleLabel: "文件夹名称", chooseImage: "选择图片", emptyArtboard: "空白画板", artboardEmptyHint: "打开后开始绘制", richTextDefault: "<h2>新文档</h2><p>一起写点什么…</p>", richTextSeed: "<h2>项目简报</h2><p>在这里共同推进想法，让故事慢慢成形。</p><p><strong>今天：</strong>收集参考、梳理结构，并分享第一版。</p>", switchWorkspace: "切换工作空间", workspaces: "工作空间", currentSpace: "当前空间", newWorkspace: "新建工作空间", openHome: "打开首页", noSavedSpaces: "暂无已保存的工作空间", saveCurrentHint: "可先保存当前空间，或新建一个", imagePasted: "已从剪贴板粘贴图片", noImageInClipboard: "剪贴板中没有图片", grouped: "已建组", ungrouped: "已解组", gridSnap: "网格吸附", gridSnapOn: "网格吸附：开", gridSnapOff: "网格吸附：关", alignLeft: "左对齐", alignCenterX: "水平居中", alignRight: "右对齐", alignTop: "顶对齐", alignCenterY: "垂直居中", alignBottom: "底对齐", distributeH: "水平分布", distributeV: "垂直分布", aligned: "已对齐", distributed: "已分布", tidyGrid: "一键整理", tidied: "已整理对齐", tidyNeedMore: "请先选择至少 2 个面板，或在画布上放置多张图片", openExternal: "新标签打开", reloadPage: "刷新", linkEmbedFailed: "此网站不允许嵌入预览", linkEmbedHint: "因安全策略无法在面板内显示，可在新标签中打开。", linkLoading: "加载网页…", todo: "待办", todoAdded: "已添加待办", todoTitle: "待办事项", todoItemPlaceholder: "添加事项…", todoEmpty: "暂无事项", todoEmptyHint: "在下方输入，按回车快速添加", connectHint: "从圆点拖到另一卡片可连接", edgeDeleted: "已删除连接", connected: "已连接", editLink: "编辑链接", linkDescLabel: "描述", moreActions: "更多操作", openFolder: "打开文件夹", folderPeekTitle: "文件夹内容", folderPeekHint: "双击或点下方按钮进入", folderPeekEmpty: "文件夹为空", mouseMode: "鼠标模式", mouseClick: "点击", mouseDrag: "拖拽", mouseModeClickOn: "鼠标：点击", mouseModeDragOn: "鼠标：拖拽", mouseModeHint: "Alt+拖拽可临时移动卡片"
         },
         en: {
-            joinEyebrow: "A shared space for ideas", joinTitle: "Make room for\nwhat’s next.", joinDescription: "Gather, shape and move ideas together — in one calm, infinite canvas.", joinFoot: "Built for small teams with big questions", joinHeading: "Join a space", invited: "You’re invited to collaborate in", name: "Your name", namePlaceholder: "e.g. Sam", password: "Room password", optional: "optional", passwordPlaceholder: "Enter password", enter: "Enter space", syncNote: "Your changes sync live with everyone here.", canvasHint: "Middle-drag to pan · Left-drag to select · Scroll to zoom · Drag ports to connect", createHere: "Create in this space", edit: "Edit content", duplicate: "Duplicate", delete: "Delete", sticky: "Sticky note", richText: "Rich text", image: "Image", link: "Link", folder: "Folder", trash: "Trash", restore: "Restore", emptyTrash: "Empty trash", artboard: "Artboard", items: "items", fit: "Fit canvas", invite: "Copy invite link", language: "中文", languageAction: "Switch to 中文", noteAdded: "Sticky note added", documentAdded: "Document added", imageAdded: "Image added", linkAdded: "Link added", folderAdded: "Folder added", artboardAdded: "Artboard added", copied: "Invite link copied", movedTrash: "Moved to trash", duplicated: "Duplicated", justNow: "just now", people: "people here", onePerson: "1 person here", newDocument: "New document", writeTogether: "Write something together…", newVisual: "New visual reference", newIdea: "A new idea…", savedLink: "Saved link", reference: "Reference", imageCaptionPrompt: "Enter image caption", linkTitlePrompt: "Enter link title", linkUrlPrompt: "Enter link URL", folderTitlePrompt: "Enter folder name", open: "Open panel", close: "Close", back: "Back to canvas", moveIntoFolder: "Moved into folder", folderEmpty: "Folder is empty", selectedCount: "selected", selectionHint: "Left-drag to box-select · Ctrl/Cmd+G to group/ungroup", panelInfo: "Panel info", resolution: "Resolution", filename: "Filename", date: "Date", createdOn: "Created on", dropIntoFolder: "Drop into folder", incorrectPassword: "Incorrect room password", save: "Save", saved: "Saved — reopen from the home screen next time", savedRooms: "Saved spaces", saveSpace: "Save space", untitledSpace: "Untitled Space", cancel: "Cancel", apply: "Apply", replaceImage: "Replace image", dropReplaceHint: "Drop a new image here to replace", editImageTitle: "Edit image", editLinkTitle: "Edit link", editFolderTitle: "Edit folder", imageUpdated: "Image updated", linkUpdated: "Link updated", folderUpdated: "Folder updated", undone: "Undone", redone: "Redone", nothingToUndo: "Nothing to undo", nothingToRedo: "Nothing to redo", uploading: "Uploading", uploadFailed: "Upload failed", uploadRetry: "Retry", p2pDirect: "Direct", p2pRelay: "Relay", captionLabel: "Caption", linkTitleLabel: "Link title", linkUrlLabel: "Link URL", folderTitleLabel: "Folder name", chooseImage: "Choose image", emptyArtboard: "Empty artboard", artboardEmptyHint: "Open to start drawing", richTextDefault: "<h2>New document</h2><p>Write something together…</p>", richTextSeed: "<h2>Project brief</h2><p>Build a calm, curious space where ideas can grow together.</p><p><strong>Today:</strong> gather references, shape the story, and share a first draft.</p>", switchWorkspace: "Switch workspace", workspaces: "Workspaces", currentSpace: "Current space", newWorkspace: "New workspace", openHome: "Open home", noSavedSpaces: "No saved workspaces yet", saveCurrentHint: "Save this space first, or create a new one", imagePasted: "Image pasted from clipboard", noImageInClipboard: "No image in clipboard", grouped: "Grouped", ungrouped: "Ungrouped", gridSnap: "Grid snap", gridSnapOn: "Grid snap: On", gridSnapOff: "Grid snap: Off", alignLeft: "Align left", alignCenterX: "Align center", alignRight: "Align right", alignTop: "Align top", alignCenterY: "Align middle", alignBottom: "Align bottom", distributeH: "Distribute horizontally", distributeV: "Distribute vertically", aligned: "Aligned", distributed: "Distributed", tidyGrid: "Tidy grid", tidied: "Tidied into a grid", tidyNeedMore: "Select at least 2 panels, or place multiple images on the canvas", openExternal: "Open in new tab", reloadPage: "Reload", linkEmbedFailed: "This site cannot be embedded", linkEmbedHint: "The site blocks embedding. Open it in a new tab instead.", linkLoading: "Loading page…", todo: "Todo", todoAdded: "Todo list added", todoTitle: "Todo list", todoItemPlaceholder: "Add a task…", todoEmpty: "No tasks yet", todoEmptyHint: "Type below and press Enter to add", connectHint: "Drag from a port to another card to connect", edgeDeleted: "Connection deleted", connected: "Connected", editLink: "Edit link", linkDescLabel: "Description", moreActions: "More actions", openFolder: "Open folder", folderPeekTitle: "Folder contents", folderPeekHint: "Double-click or use the button below to enter", folderPeekEmpty: "Folder is empty", mouseMode: "Mouse mode", mouseClick: "Click", mouseDrag: "Drag", mouseModeClickOn: "Mouse: Click", mouseModeDragOn: "Mouse: Drag", mouseModeHint: "Hold Alt to drag cards temporarily"
+            joinEyebrow: "A shared space for ideas", joinTitle: "Make room for\nwhat’s next.", joinDescription: "Gather, shape and move ideas together — in one calm, infinite canvas.", joinFoot: "Built for small teams with big questions", joinHeading: "Join a space", invited: "You’re invited to collaborate in", name: "Your name", namePlaceholder: "e.g. Sam", password: "Room password", optional: "optional", passwordPlaceholder: "Enter password", enter: "Enter space", syncNote: "Your changes sync live with everyone here.", canvasHint: "Two-finger scroll pans · ⌘/Ctrl pinch zooms · Drag mode moves the canvas", createHere: "Create in this space", edit: "Edit content", duplicate: "Duplicate", delete: "Delete", sticky: "Sticky note", richText: "Rich text", image: "Image", link: "Link", folder: "Folder", trash: "Trash", restore: "Restore", emptyTrash: "Empty trash", artboard: "Artboard", items: "items", fit: "Fit canvas", invite: "Copy invite link", language: "中文", languageAction: "Switch to 中文", noteAdded: "Sticky note added", documentAdded: "Document added", imageAdded: "Image added", linkAdded: "Link added", folderAdded: "Folder added", artboardAdded: "Artboard added", copied: "Invite link copied", movedTrash: "Moved to trash", duplicated: "Duplicated", justNow: "just now", people: "people here", onePerson: "1 person here", newDocument: "New document", writeTogether: "Write something together…", newVisual: "New visual reference", newIdea: "A new idea…", savedLink: "Saved link", reference: "Reference", imageCaptionPrompt: "Enter image caption", linkTitlePrompt: "Enter link title", linkUrlPrompt: "Enter link URL", folderTitlePrompt: "Enter folder name", open: "Open panel", close: "Close", back: "Back to canvas", moveIntoFolder: "Moved into folder", folderEmpty: "Folder is empty", selectedCount: "selected", selectionHint: "Left-drag to box-select · Ctrl/Cmd+G to group/ungroup", panelInfo: "Panel info", resolution: "Resolution", filename: "Filename", date: "Date", createdOn: "Created on", dropIntoFolder: "Drop into folder", incorrectPassword: "Incorrect room password", save: "Save", saved: "Saved — reopen from the home screen next time", savedRooms: "Saved spaces", saveSpace: "Save space", untitledSpace: "Untitled Space", cancel: "Cancel", apply: "Apply", replaceImage: "Replace image", dropReplaceHint: "Drop a new image here to replace", editImageTitle: "Edit image", editLinkTitle: "Edit link", editFolderTitle: "Edit folder", imageUpdated: "Image updated", linkUpdated: "Link updated", folderUpdated: "Folder updated", undone: "Undone", redone: "Redone", nothingToUndo: "Nothing to undo", nothingToRedo: "Nothing to redo", uploading: "Uploading", uploadFailed: "Upload failed", uploadRetry: "Retry", p2pDirect: "Direct", p2pRelay: "Relay", captionLabel: "Caption", linkTitleLabel: "Link title", linkUrlLabel: "Link URL", folderTitleLabel: "Folder name", chooseImage: "Choose image", emptyArtboard: "Empty artboard", artboardEmptyHint: "Open to start drawing", richTextDefault: "<h2>New document</h2><p>Write something together…</p>", richTextSeed: "<h2>Project brief</h2><p>Build a calm, curious space where ideas can grow together.</p><p><strong>Today:</strong> gather references, shape the story, and share a first draft.</p>", switchWorkspace: "Switch workspace", workspaces: "Workspaces", currentSpace: "Current space", newWorkspace: "New workspace", openHome: "Open home", noSavedSpaces: "No saved workspaces yet", saveCurrentHint: "Save this space first, or create a new one", imagePasted: "Image pasted from clipboard", noImageInClipboard: "No image in clipboard", grouped: "Grouped", ungrouped: "Ungrouped", gridSnap: "Grid snap", gridSnapOn: "Grid snap: On", gridSnapOff: "Grid snap: Off", alignLeft: "Align left", alignCenterX: "Align center", alignRight: "Align right", alignTop: "Align top", alignCenterY: "Align middle", alignBottom: "Align bottom", distributeH: "Distribute horizontally", distributeV: "Distribute vertically", aligned: "Aligned", distributed: "Distributed", tidyGrid: "Tidy grid", tidied: "Tidied into a grid", tidyNeedMore: "Select at least 2 panels, or place multiple images on the canvas", openExternal: "Open in new tab", reloadPage: "Reload", linkEmbedFailed: "This site cannot be embedded", linkEmbedHint: "The site blocks embedding. Open it in a new tab instead.", linkLoading: "Loading page…", todo: "Todo", todoAdded: "Todo list added", todoTitle: "Todo list", todoItemPlaceholder: "Add a task…", todoEmpty: "No tasks yet", todoEmptyHint: "Type below and press Enter to add", connectHint: "Drag from a port to another card to connect", edgeDeleted: "Connection deleted", connected: "Connected", editLink: "Edit link", linkDescLabel: "Description", moreActions: "More actions", openFolder: "Open folder", folderPeekTitle: "Folder contents", folderPeekHint: "Double-click or use the button below to enter", folderPeekEmpty: "Folder is empty", mouseMode: "Mouse mode", mouseClick: "Click", mouseDrag: "Drag", mouseModeClickOn: "Mouse: Click", mouseModeDragOn: "Mouse: Drag", mouseModeHint: "Hold Alt to drag cards temporarily"
         }
     };
     const t = (key) => translations[lang][key] ?? translations.zh[key] ?? key;
@@ -577,7 +577,7 @@
             e.stopPropagation();
             const r = e.currentTarget.getBoundingClientRect();
             contextPoint = worldPoint({ clientX: innerWidth / 2, clientY: innerHeight / 2 });
-            showContextMenu(r.right - 268, r.top, null);
+            showUtilityMenu(e, 'create');
             const menu = $('#context-menu');
             menu.style.top = `${Math.max(12, r.top - menu.offsetHeight - 12)}px`;
         };
@@ -604,7 +604,7 @@
             selected = card.dataset.id; const rect = wrap.getBoundingClientRect(); contextPoint = { x: (e.clientX - rect.left - view.x) / view.scale, y: (e.clientY - rect.top - view.y) / view.scale }; showContextMenu(e.clientX, e.clientY, card ? objects.find(o => o.id === card.dataset.id) || null : null); if (card)
             renderObjects(); });
         wrap.addEventListener("pointerdown", (e) => {
-            if (e.button === 1) {
+            if (e.button === 1 || (e.button === 0 && (mouseMode === "drag" || e.pointerType === "touch") && isCanvasTarget(e.target))) {
                 e.preventDefault();
                 drag = { pan: true, sx: e.clientX, sy: e.clientY, ox: view.x, oy: view.y };
                 wrap.classList.add("is-panning");
@@ -767,22 +767,31 @@
                         }
                     }
                     else if (folder) {
-                        const now = Date.now();
-                        if (lastCardTap.id === folder.id && now - lastCardTap.time < 520) {
+                        // Link cards are navigational: enter the embedded page on the first click.
+                        // Other cards retain the single/double-click disambiguation used by editors.
+                        if (folder.kind === "link") {
                             lastCardTap = { id: null, time: 0 };
-                            openPanel(folder);
+                            if (mouseMode === "click" && !e.altKey)
+                                openPanel(folder);
                         }
                         else {
-                            lastCardTap = { id: folder.id, time: now };
-                            if (mouseMode === "click" && !e.altKey) {
-                                // Resolve single vs double click before mounting an interactive drawing surface.
-                                panelOpenTimer = setTimeout(() => {
-                                    panelOpenTimer = null;
-                                    lastCardTap = { id: null, time: 0 };
-                                    const current = objectById(folder.id);
-                                    if (current)
-                                        openPanel(current);
-                                }, 520);
+                            const now = Date.now();
+                            if (lastCardTap.id === folder.id && now - lastCardTap.time < 520) {
+                                lastCardTap = { id: null, time: 0 };
+                                openPanel(folder);
+                            }
+                            else {
+                                lastCardTap = { id: folder.id, time: now };
+                                if (mouseMode === "click" && !e.altKey) {
+                                    // Resolve single vs double click before mounting an interactive drawing surface.
+                                    panelOpenTimer = setTimeout(() => {
+                                        panelOpenTimer = null;
+                                        lastCardTap = { id: null, time: 0 };
+                                        const current = objectById(folder.id);
+                                        if (current)
+                                            openPanel(current);
+                                    }, 520);
+                                }
                             }
                         }
                     }
@@ -854,7 +863,25 @@
             const at = worldPoint(e);
             void addImagesFromFiles(files, at);
         });
-        wrap.addEventListener("wheel", (e) => { e.preventDefault(); const factor = e.deltaY > 0 ? .92 : 1.09; const rect = wrap.getBoundingClientRect(); const px = e.clientX - rect.left, py = e.clientY - rect.top; const old = view.scale; const next = Math.max(.45, Math.min(1.8, old * factor)); view.x = px - (px - view.x) * next / old; view.y = py - (py - view.y) * next / old; view.scale = next; applyView(); }, { passive: false });
+        wrap.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? wrap.clientHeight : 1;
+            const dx = e.deltaX * unit, dy = e.deltaY * unit;
+            const rect = wrap.getBoundingClientRect();
+            if (e.ctrlKey || e.metaKey) {
+                const px = e.clientX - rect.left, py = e.clientY - rect.top;
+                const old = view.scale, factor = Math.exp(-dy * 0.0015);
+                const next = Math.max(.45, Math.min(1.8, old * factor));
+                view.x = px - (px - view.x) * next / old;
+                view.y = py - (py - view.y) * next / old;
+                view.scale = next;
+            }
+            else {
+                view.x -= dx;
+                view.y -= dy;
+            }
+            applyView();
+        }, { passive: false });
         $("#zoom-in").onclick = () => zoomAt(1.12);
         $("#zoom-out").onclick = () => zoomAt(.89);
         $("#fit-btn").onclick = fitCanvas;
@@ -1013,10 +1040,14 @@
         const zh = lang === 'zh';
         const row = (action, label) => `<button data-utility="${action}">${label}</button>`;
         menu.innerHTML = mode === 'settings'
-            ? `<div class="context-title">${escapeHtml(roomName)}</div>${row('save', `${icon("bookmark")} ${t('saveSpace')}`)}${row('fit', t('fit'))}${row('invite', t('invite'))}${row('grid-snap', `${icon("gridSnap")} ${gridSnapEnabled ? t('gridSnapOn') : t('gridSnapOff')}`)}${row('tidy', `${icon("tidyGrid")} ${t('tidyGrid')}`)}${row('trash', `${icon("trash")} ${t('trash')} (${trashItems.length})`)}${row('language', t('languageAction'))}`
-            : mode === 'navigation'
-                ? `${row('back', zh ? '返回完整画布' : 'Back to canvas')}<div class="context-separator"></div>` + objects.filter(o => o.kind === 'folder').map(o => row(o.id, `${icon("folder")} ${escapeHtml(o.title || t('folder'))}`)).join('')
-                : `<input class="canvas-search-input" placeholder="${zh ? '搜索内容…' : 'Search content…'}" aria-label="${zh ? '搜索内容' : 'Search content'}"><div class="search-results"></div>`;
+            ? `${row('edit-space', `${icon('pen')}<span>${zh ? '编辑空间' : 'Edit Space'}</span><small>${escapeHtml(roomName)}</small>`)}${row('delete-space', `${icon('trash')}<span>${zh ? '删除空间' : 'Delete Space'}</span>`)}<div class="context-separator"></div>${row('pro', `${icon('bookmark')}<span>Spatial Pro</span><small>${objects.length} / 500 items</small>`)}`
+            : mode === 'create'
+                ? `${row('note', `${icon('note')}<span>${zh ? '便签' : 'Note'}</span><kbd>⌘ N</kbd>`)}${row('sticky', `${icon('note')}<span>${zh ? '贴纸' : 'Sticky'}</span><kbd>⇧⌘ N</kbd>`)}${row('folder', `${icon('folder')}<span>${t('folder')}</span>`)}${row('webclip', `${icon('link')}<span>${zh ? '网页剪辑' : 'Webclip'}</span>`)}<div class="context-separator"></div>${row('import', `${icon('bookmark')}<span>${zh ? '导入' : 'Import'}</span><span class="context-trailing">›</span>`)}${row('new-space', `${icon('layers')}<span>${zh ? '新空间' : 'New Space'}</span><span class="context-trailing">↗</span>`)}`
+                : mode === 'navigation'
+                    ? `${row('back', zh ? '返回完整画布' : 'Back to canvas')}<div class="context-separator"></div>` + objects.filter(o => o.kind === 'folder').map(o => row(o.id, `${icon("folder")} ${escapeHtml(o.title || t('folder'))}`)).join('')
+                    : `<input class="canvas-search-input" placeholder="${zh ? '搜索内容…' : 'Search content…'}" aria-label="${zh ? '搜索内容' : 'Search content'}"><div class="search-results"></div>`;
+        menu.classList.remove('utility-settings', 'utility-search', 'utility-navigation', 'utility-create');
+        menu.classList.add(`utility-${mode}`);
         menu.classList.add('open');
         document.body.classList.add('menu-open');
         menu.style.left = `${Math.max(12, Math.min(r.left, innerWidth - menu.offsetWidth - 12))}px`;
@@ -1024,6 +1055,51 @@
         menu.querySelectorAll('[data-utility]').forEach((button) => button.onclick = (event) => {
             event.stopPropagation();
             const action = button.dataset.utility;
+            if (action === 'edit-space') {
+                hideContextMenu();
+                const next = window.prompt(zh ? '空间名称' : 'Space name', roomName);
+                if (next?.trim()) {
+                    roomName = next.trim();
+                    renderCanvas();
+                    toast(zh ? '空间名称已更新' : 'Space renamed');
+                }
+                return;
+            }
+            if (action === 'delete-space') {
+                hideContextMenu();
+                toast(zh ? '删除空间需要在首页确认' : 'Delete Space requires confirmation on the home screen');
+                return;
+            }
+            if (action === 'pro') {
+                hideContextMenu();
+                toast('Spatial Pro');
+                return;
+            }
+            if (action === 'import') {
+                hideContextMenu();
+                toast(zh ? '导入功能已就绪' : 'Import ready');
+                return;
+            }
+            if (action === 'new-space') {
+                hideContextMenu();
+                void createAndOpenWorkspace();
+                return;
+            }
+            if (action === 'note') {
+                hideContextMenu();
+                addObject('richText', contextPoint);
+                return;
+            }
+            if (action === 'sticky') {
+                hideContextMenu();
+                addObject('note', contextPoint);
+                return;
+            }
+            if (action === 'webclip') {
+                hideContextMenu();
+                toast(zh ? '网页剪辑功能已就绪' : 'Webclip ready');
+                return;
+            }
             // Opening trash replaces menu HTML; hide+bubble would see a detached click
             // target and immediately close the newly opened recycle bin.
             if (action === "trash")
@@ -2012,11 +2088,18 @@
                 else
                     openPanel(child);
             };
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', e => {
+                const child = objectById(btn.dataset.peekId);
+                if (child?.kind === 'link') {
+                    e.stopPropagation();
+                    open();
+                    return;
+                }
                 root.querySelectorAll('.is-picked').forEach(el => el.classList.remove('is-picked'));
                 btn.classList.add('is-picked');
             }, { signal });
-            btn.addEventListener('dblclick', e => { e.stopPropagation(); open(); }, { signal });
+            btn.addEventListener('dblclick', e => { e.stopPropagation(); if (objectById(btn.dataset.peekId)?.kind !== 'link')
+                open(); }, { signal });
             btn.addEventListener('keydown', e => { if (e.key === 'Enter') {
                 e.preventDefault();
                 open();
@@ -2138,9 +2221,85 @@
         const title = o.title || o.caption || kindLabel(o.kind);
         if (o.kind === "richText")
             return `<section class="rich-focus-shell" data-rich-id="${o.id}"><header class="rich-focus-top"><button class="rich-back" data-panel-close aria-label="${t("back")}">${icon("back")}<span>${t("back")}</span></button><div class="rich-save-status" role="status"></div><button class="rich-download" data-panel-action="download" aria-label="${lang === "zh" ? "下载文档" : "Download document"}" title="${lang === "zh" ? "下载文档" : "Download document"}">${icon("download")}</button></header><div class="rich-focus-scroll"><article class="rich-focus-page"><input class="doc-title" aria-label="${lang === "zh" ? "文档标题" : "Document title"}" maxlength="120" value="${escapeHtml(o.title ?? t("newDocument"))}" placeholder="${t("newDocument")}"><div class="rich-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="${t("richText")}" data-placeholder="${t("writeTogether")}" spellcheck="true">${richHtml(o)}</div><div class="rich-word-count"></div></article></div><div class="rich-focus-tools">${richToolbar()}</div></section>`;
-        const body = o.kind === "artboard" ? `<div class="drawing-stage"><canvas class="drawing-canvas" width="1200" height="760"></canvas><div class="drawing-help">${lang === "zh" ? "在画板中自由绘制" : "Draw freely"}</div></div>` : o.kind === "image" ? `<div class="panel-art lightbox-stage"><div class="lightbox-viewport"><img class="lightbox-img" src="${escapeHtml(o.src)}" alt="${escapeHtml(title)}" draggable="false"></div></div>` : o.kind === "note" ? `<article class="panel-note">${escapeHtml(o.text).replace(/\n/g, "<br>")}</article>` : o.kind === "folder" ? `<div class="panel-folder"><span>▱</span><strong>${escapeHtml(title)}</strong><small>${objects.filter(child => child.folderId === o.id).length} ${t("items")}</small></div>` : `<div class="link-embed-panel"><div class="link-embed-chrome"><div class="link-embed-url" data-link-url-label title="${escapeHtml(normalizeUrl(o.url) || o.url || "")}">${escapeHtml(normalizeUrl(o.url) || o.url || "")}</div><button type="button" data-link-edit title="${t("editLink")}" aria-label="${t("editLink")}">${icon("pen")}<span>${t("edit")}</span></button><button type="button" data-link-reload title="${t("reloadPage")}" aria-label="${t("reloadPage")}">${icon("reload")}</button><button type="button" data-link-external title="${t("openExternal")}" aria-label="${t("openExternal")}">${icon("external")}<span>${t("openExternal")}</span></button></div><div class="link-embed-stage"><div class="link-embed-loading">${escapeHtml(t("linkLoading"))}</div><iframe class="link-embed-frame" title="${escapeHtml(title)}" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation"></iframe><div class="link-embed-fallback" hidden><strong>${escapeHtml(t("linkEmbedFailed"))}</strong><p>${escapeHtml(t("linkEmbedHint"))}</p><button type="button" class="spatial-btn primary" data-link-external>${escapeHtml(t("openExternal"))}</button></div></div></div>`;
+        const body = o.kind === "artboard" ? `<div class="drawing-stage"><canvas class="drawing-canvas" width="1200" height="760"></canvas><div class="drawing-help">${lang === "zh" ? "在画板中自由绘制" : "Draw freely"}</div></div>` : o.kind === "image" ? `<div class="panel-art lightbox-stage"><div class="lightbox-viewport"><img class="lightbox-img" src="${escapeHtml(o.src)}" alt="${escapeHtml(title)}" draggable="false"></div></div>` : o.kind === "note" ? `<article class="panel-note">${escapeHtml(o.text).replace(/\n/g, "<br>")}</article>` : o.kind === "folder" ? `<div class="panel-folder"><span>▱</span><strong>${escapeHtml(title)}</strong><small>${objects.filter(child => child.folderId === o.id).length} ${t("items")}</small></div>` : `<div class="link-embed-panel"><div class="link-embed-stage"><div class="link-embed-loading">${escapeHtml(t("linkLoading"))}</div><iframe class="link-embed-frame" title="${escapeHtml(title)}" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation"></iframe><div class="link-embed-fallback" hidden><strong>${escapeHtml(t("linkEmbedFailed"))}</strong><p>${escapeHtml(t("linkEmbedHint"))}</p><button type="button" class="spatial-btn primary" data-link-external>${escapeHtml(t("openExternal"))}</button></div></div></div>`;
+        if (o.kind === "link")
+            return `<section class="panel-viewer-shell link-immersive-shell"><button class="panel-back" data-panel-close aria-label="${t("close")}">${icon("back")}</button><div class="panel-content">${body}</div></section>`;
         const meta = o.kind === "artboard" ? `<div><b>${t("panelInfo")}</b><span>${t("artboard")} · ${o.strokes?.length || 0}</span></div>` : o.kind === "image" ? `<div><b>${t("resolution")}</b><span>${Math.round(o.width)} × ${Math.round(o.height)}</span></div><div><b>${t("filename")}</b><span>${escapeHtml(o.assetId || o.id)}.png</span></div><div><b>${t("date")}</b><span>${t("createdOn")} ${new Date().toLocaleDateString(lang === "zh" ? "zh-CN" : "en-US", { month: "short", day: "numeric" })}</span></div>` : `<div><b>${t("panelInfo")}</b><span>${escapeHtml(kindLabel(o.kind))}</span></div><div><b>${t("date")}</b><span>${t("createdOn")} ${new Date().toLocaleDateString(lang === "zh" ? "zh-CN" : "en-US")}</span></div>`;
-        return `<section class="panel-viewer-shell"><button class="panel-back" data-panel-close aria-label="${t("close")}">${icon("back")}</button><div class="panel-content">${body}</div><aside class="panel-meta"><h1>${escapeHtml(title)}</h1>${meta}</aside><div class="panel-toolbar">${o.kind === "link" || o.kind === "image" || o.kind === "folder" ? `<button data-panel-action="edit" aria-label="${t("edit")}" title="${t("edit")}">${icon("pen")}</button>` : ""}<button data-panel-action="duplicate" aria-label="${t("duplicate")}" title="${t("duplicate")}">${icon("copy")}</button><button data-panel-action="download" aria-label="${lang === "zh" ? "下载" : "Download"}" title="${lang === "zh" ? "下载" : "Download"}">${icon("download")}</button><button data-panel-action="delete" aria-label="${t("delete")}" title="${t("delete")}">${icon("trash")}</button></div></section>`;
+        return `<section class="panel-viewer-shell"><button class="panel-back" data-panel-close aria-label="${t("close")}">${icon("back")}</button><div class="panel-content">${body}</div><aside class="panel-meta"><h1>${escapeHtml(title)}</h1>${meta}</aside><div class="panel-toolbar">${o.kind === "image" || o.kind === "folder" ? `<button data-panel-action="edit" aria-label="${t("edit")}" title="${t("edit")}">${icon("pen")}</button>` : ""}<button data-panel-action="duplicate" aria-label="${t("duplicate")}" title="${t("duplicate")}">${icon("copy")}</button><button data-panel-action="download" aria-label="${lang === "zh" ? "下载" : "Download"}" title="${lang === "zh" ? "下载" : "Download"}">${icon("download")}</button><button data-panel-action="delete" aria-label="${t("delete")}" title="${t("delete")}">${icon("trash")}</button></div></section>`;
+    }
+    /**
+     * Link cards get a passive, in-place web preview.  The iframe is deliberately
+     * non-interactive so it never steals the canvas pointer gesture: a card still
+     * selects/moves exactly like every other canvas object and opens the immersive
+     * panel from the existing pointerup path.
+     */
+    function bindInlineLinkPreview(object, el) {
+        if (object.kind !== "link")
+            return;
+        const frame = el.querySelector(".link-inline-frame");
+        const loading = el.querySelector(".link-inline-loading");
+        const empty = el.querySelector(".link-inline-empty");
+        if (!frame)
+            return;
+        const href = normalizeUrl(object.url);
+        const markEmpty = () => {
+            if (loading)
+                loading.hidden = true;
+            if (empty)
+                empty.hidden = false;
+            frame.hidden = true;
+        };
+        if (!href) {
+            markEmpty();
+            return;
+        }
+        frame.dataset.href = href;
+        frame.addEventListener("load", () => {
+            if (loading)
+                loading.hidden = true;
+            if (empty)
+                empty.hidden = true;
+            frame.hidden = false;
+        }, { once: true });
+        // A blocked/slow page still remains visible as the browser's embedded
+        // response; only remove the loading veil so the card never looks empty.
+        window.setTimeout(() => { if (loading && !loading.hidden)
+            loading.hidden = true; }, 8000);
+    }
+    function syncInlineLinkPreview(object, el) {
+        if (object.kind !== "link")
+            return;
+        const frame = el.querySelector(".link-inline-frame");
+        const loading = el.querySelector(".link-inline-loading");
+        const empty = el.querySelector(".link-inline-empty");
+        if (!frame)
+            return;
+        const href = normalizeUrl(object.url);
+        if (!href) {
+            if (loading)
+                loading.hidden = true;
+            if (empty)
+                empty.hidden = false;
+            frame.hidden = true;
+            frame.removeAttribute("src");
+            delete frame.dataset.href;
+            return;
+        }
+        if (frame.dataset.href === href)
+            return;
+        frame.dataset.href = href;
+        frame.hidden = false;
+        if (empty)
+            empty.hidden = true;
+        if (loading)
+            loading.hidden = false;
+        frame.addEventListener("load", () => {
+            if (loading)
+                loading.hidden = true;
+            if (empty)
+                empty.hidden = true;
+        }, { once: true });
+        frame.src = href;
     }
     function openPanel(object) {
         if (object.kind === "pin")
@@ -3235,7 +3394,9 @@
             return `<article class="canvas-card rich-card${active}" data-id="${o.id}" style="left:${o.x}px;top:${o.y}px;width:${o.width}px;height:${o.height}px">${ports}<div class="rich-preview" aria-hidden="true">${richHtml(o)}</div><div class="image-caption"><span class="image-caption-text">${escapeHtml(o.title || t("newDocument"))}</span></div></article>`;
         if (o.kind === "image")
             return `<article class="canvas-card image-card${active}${o.uploading ? " is-uploading" : ""}${o.uploadError ? " is-upload-error" : ""}" data-id="${o.id}" style="left:${o.x}px;top:${o.y}px;width:${o.width}px;height:${o.height}px">${ports}<img src="${escapeHtml(o.src || "")}" alt="${escapeHtml(o.caption || t("newVisual"))}" draggable="false" class="${o.uploading ? "is-blur" : ""}"><div class="upload-overlay" ${o.uploading || o.uploadError ? "" : "hidden"}><div class="upload-label">${escapeHtml(o.uploadError ? t("uploadFailed") : t("uploading"))}</div><div class="upload-track"><div class="upload-progress-bar" style="width:${Math.max(0, Math.min(100, o.uploadProgress || 0))}%"></div></div>${o.uploadError ? `<button type="button" class="upload-retry" data-upload-retry="${o.id}">${escapeHtml(t("uploadRetry"))}</button>` : ""}</div><div class="image-caption"><span class="image-caption-text">${escapeHtml(o.caption || t("newVisual"))}</span></div></article>`;
-        return `<article class="canvas-card link-card${active}" data-id="${o.id}" style="left:${o.x}px;top:${o.y}px;width:${o.width}px;height:${o.height}px">${ports}<div class="link-preview"><div class="link-favicon">↗</div><div class="link-copy"><b>${escapeHtml(o.title || t("savedLink"))}</b><span>${escapeHtml(o.description || o.url)}</span></div></div><div class="link-url">${escapeHtml(o.url)}</div></article>`;
+        const href = normalizeUrl(o.url);
+        const frameSrc = href ? ` src="${escapeHtml(href)}"` : "";
+        return `<article class="canvas-card link-card${active}" data-id="${o.id}" style="left:${o.x}px;top:${o.y}px;width:${o.width}px;height:${o.height}px">${ports}<div class="link-inline-preview"><div class="link-inline-loading">${escapeHtml(t("linkLoading"))}</div><div class="link-inline-empty" hidden>${escapeHtml(t("savedLink"))}</div><iframe class="link-inline-frame" title="${escapeHtml(o.title || t("savedLink"))}"${frameSrc} loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin" tabindex="-1" aria-hidden="true"></iframe></div></article>`;
     }
     function richToolbar() {
         const commands = [
@@ -3462,6 +3623,8 @@
         }
         if (o.kind === "todo")
             bindTodoCard(o, el);
+        if (o.kind === "link")
+            bindInlineLinkPreview(o, el);
         el.addEventListener("pointerdown", (e) => {
             if (e.button !== 0 || e.target.closest("input,button,textarea,.rich-editor,.format-bar,.fmt-btn,.resize-handle,.conn-port,.todo-item,.todo-check,.todo-item-text,.todo-add-input,.todo-add-row,.todo-title,.todo-item-remove,.todo-list,.todo-empty,.todo-header,.todo-progress"))
                 return;
@@ -3858,13 +4021,13 @@
     }
     function addObject(kind, at) {
         // Legacy note/link kinds remain renderable.
-        if (kind !== "image" && kind !== "artboard" && kind !== "folder" && kind !== "todo" && kind !== "richText" && kind !== "pin")
+        if (kind !== "image" && kind !== "artboard" && kind !== "folder" && kind !== "todo" && kind !== "richText" && kind !== "note" && kind !== "pin")
             return;
         const n = objects.length;
         let x = at?.x ?? 330 + (n % 3) * 46;
         let y = at?.y ?? 240 + (n % 4) * 42;
-        const width = kind === "pin" ? 40 : kind === "richText" ? 380 : kind === "todo" ? 320 : kind === "artboard" ? 320 : kind === "image" ? 300 : 260;
-        const height = kind === "pin" ? 40 : kind === "richText" ? 330 : kind === "todo" ? 360 : kind === "artboard" ? 210 : kind === "image" ? 205 : 180;
+        const width = kind === "pin" ? 40 : kind === "richText" ? 380 : kind === "todo" ? 320 : kind === "note" ? 280 : kind === "artboard" ? 320 : kind === "image" ? 300 : 260;
+        const height = kind === "pin" ? 40 : kind === "richText" ? 330 : kind === "todo" ? 360 : kind === "note" ? 220 : kind === "artboard" ? 210 : kind === "image" ? 205 : 180;
         if (kind === "pin") {
             x -= width / 2;
             y -= height / 2;
@@ -3874,8 +4037,9 @@
             : kind === "pin" ? { ...base, kind, title: kindLabel("pin") }
                 : kind === "richText" ? { ...base, kind, title: t("newDocument"), content: "<p><br></p>", richTextVersion: 0 }
                     : kind === "todo" ? { ...base, kind, title: t("todoTitle"), items: [], todoVersion: 0 }
-                        : kind === "image" ? { ...base, kind, src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=740&q=80", caption: t("newVisual") }
-                            : { ...base, kind: "folder", title: t("folder") };
+                        : kind === "note" ? { ...base, kind, title: t("sticky"), text: "", color: "#fff2a8" }
+                            : kind === "image" ? { ...base, kind, src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=740&q=80", caption: t("newVisual") }
+                                : { ...base, kind: "folder", title: t("folder") };
         snapshotState();
         objects.push(o);
         selected = o.id;
@@ -3889,7 +4053,7 @@
             openPanel(o);
             document.querySelector("#panel-viewer .rich-editor")?.focus();
         }
-        toast(kind === "pin" ? (lang === "zh" ? "已放置图钉" : "Pin added") : kind === "richText" ? t("documentAdded") : kind === "todo" ? t("todoAdded") : kind === "image" ? t("imageAdded") : kind === "folder" ? t("folderAdded") : t("artboardAdded"));
+        toast(kind === "pin" ? (lang === "zh" ? "已放置图钉" : "Pin added") : kind === "richText" ? t("documentAdded") : kind === "note" ? t("noteAdded") : kind === "todo" ? t("todoAdded") : kind === "image" ? t("imageAdded") : kind === "folder" ? t("folderAdded") : t("artboardAdded"));
     }
     function showContextMenu(x, y, object) {
         const menu = $("#context-menu");
@@ -3899,6 +4063,7 @@
         const openItem = object && object.kind !== "pin" ? `<button data-context="open"><span class="context-leading">${icon("open")}</span><span>${object.kind === "folder" ? t("open") : t("open")}</span></button>` : "";
         const items = object ? `<div class="context-title"><span class="context-dot" style="background:${object.kind === "note" ? "#e6c45d" : object.kind === "folder" ? "#d8a54b" : "#6f86e8"}"></span>${escapeHtml(kindLabel(object.kind))}</div>${openItem}${editItem}${object.kind !== "pin" ? `<button data-context="add-card-pin"><span class="context-leading">${icon("pin")}</span><span>${lang === "zh" ? "在这里打图钉" : "Pin this point"}</span></button>` : ""}${layerActionsHtml(object)}<button data-context="duplicate"><span class="context-leading">${icon("copy")}</span><span>${t("duplicate")}</span></button><button data-context="delete" class="danger"><span class="context-leading">${icon("trash")}</span><span>${t("delete")}</span></button><div class="context-separator"></div>` : "";
         menu.innerHTML = `${items}<div class="context-title muted">${t("createHere")}</div><button data-context="pin"><span class="context-leading context-pin">${icon("pin")}</span><span>${lang === "zh" ? "图钉连接点" : "Connection pin"}</span></button><button data-context="image"><span class="context-leading context-image">${icon("image")}</span><span>${t("image")}</span><kbd>⌘ I</kbd></button><button data-context="artboard"><span class="context-leading context-artboard">${icon("pen")}</span><span>${t("artboard")}</span><kbd>⇧⌘ A</kbd></button><button data-context="richText"><span class="context-leading context-document">${icon("note")}</span><span>${t("richText")}</span></button><button data-context="todo"><span class="context-leading context-todo">${icon("todo")}</span><span>TodoList · ${t("todo")}</span></button><button data-context="folder"><span class="context-leading context-folder">${icon("folder")}</span><span>${t("folder")}</span><kbd>⇧⌘ F</kbd></button><div class="context-separator"></div><button data-context="fit"><span class="context-leading">${icon("fit")}</span><span>${t("fit")}</span></button><button data-context="invite"><span class="context-leading">${icon("link")}</span><span>${t("invite")}</span></button><button data-context="language"><span class="context-leading">${icon("globe")}</span><span>${t("languageAction")}</span></button>`;
+        menu.classList.remove('utility-settings', 'utility-search', 'utility-navigation', 'utility-create');
         menu.classList.add("open");
         document.body.classList.add("menu-open");
         const menuWidth = menu.offsetWidth || 344;
@@ -3907,7 +4072,7 @@
         menu.style.top = `${Math.max(12, Math.min(y, innerHeight - menuHeight - 12))}px`;
         menu.querySelectorAll("[data-context]").forEach((button) => button.addEventListener("click", () => contextAction(button.dataset.context, object)));
     }
-    function hideContextMenu() { $("#context-menu")?.classList.remove("open"); document.body.classList.remove("menu-open"); }
+    function hideContextMenu() { const menu = $("#context-menu"); menu?.classList.remove("open", "utility-settings", "utility-search", "utility-navigation", "utility-create"); document.body.classList.remove("menu-open"); }
     function contextAction(action, object) {
         hideContextMenu();
         if (object && action?.startsWith("layer-"))
@@ -4554,15 +4719,7 @@
                 label.textContent = o.uploadError ? t("uploadFailed") : t("uploading");
         }
         else if (o.kind === "link") {
-            const b = el.querySelector(".link-copy b");
-            const span = el.querySelector(".link-copy span");
-            const urlEl = el.querySelector(".link-url");
-            if (b)
-                b.textContent = o.title || t("savedLink");
-            if (span)
-                span.textContent = o.description || o.url || "";
-            if (urlEl)
-                urlEl.textContent = o.url || "";
+            syncInlineLinkPreview(o, el);
         }
         else if (o.kind === "folder") {
             const name = el.querySelector(".folder-name");

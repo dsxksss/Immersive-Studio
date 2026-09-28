@@ -242,6 +242,43 @@ body.mouse-mode-click:not(.mouse-alt-drag) .folder-card.has-contents::after{bott
 @media(max-width:780px){.panel-viewer.is-image .panel-viewer-shell{padding:64px 12px 88px}.panel-viewer.is-image .panel-art,.panel-viewer.is-image .lightbox-stage,.panel-viewer.is-image .lightbox-viewport,.panel-viewer.is-image .lightbox-img{max-width:96vw;max-height:calc(100vh - 150px)}}
 @media(prefers-reduced-motion:reduce){.panel-viewer.is-image .lightbox-img{transition:none}}
 
+/* Utility sheets: the native Spatial controls rise as quiet frosted sheets. */
+.context-menu.utility-settings,.context-menu.utility-create,.context-menu.utility-navigation{transform-origin:bottom left}
+.context-menu.utility-settings .context-title,.context-menu.utility-create .context-title{letter-spacing:.01em}
+.context-menu.utility-settings button,.context-menu.utility-create button{min-height:42px}
+/* Desktop uses the same anchored geometry as the native Spatial controls:
+   settings rises from the lower-left and creation rises from the lower-right. */
+@media(min-width:781px){
+  .context-menu.utility-settings{left:32px!important;top:auto!important;bottom:100px!important;width:330px;min-width:330px;border-radius:28px;transform-origin:left bottom}
+  .context-menu.utility-create{left:auto!important;right:32px!important;top:auto!important;bottom:100px!important;width:360px;min-width:360px;border-radius:28px;transform-origin:right bottom}
+  .context-menu.utility-settings button,.context-menu.utility-create button{height:50px;border-radius:14px;font-size:15px}
+  .context-menu.utility-settings .context-title,.context-menu.utility-create .context-title{padding:8px 14px 12px;font-size:14px}
+}
+@media(max-width:780px){
+  .context-menu.utility-settings,.context-menu.utility-create,.context-menu.utility-navigation,.context-menu.utility-search{
+    position:fixed;left:12px!important;right:12px;bottom:12px;top:auto!important;width:auto;min-width:0;max-height:min(72vh,560px);padding:14px;border-radius:26px;
+    transform:translateY(16px) scale(.98);transform-origin:center bottom;box-shadow:0 24px 70px rgba(42,46,58,.24);backdrop-filter:blur(28px) saturate(125%);
+  }
+  .context-menu.utility-settings.open,.context-menu.utility-create.open,.context-menu.utility-navigation.open,.context-menu.utility-search.open{transform:translateY(0) scale(1)}
+  .context-menu.utility-settings button,.context-menu.utility-create button,.context-menu.utility-navigation button{height:48px;border-radius:14px;font-size:14px}
+  .context-menu.utility-settings .context-title,.context-menu.utility-create .context-title{padding:5px 12px 10px;font-size:13px}
+  .context-menu.utility-search{top:12px!important;bottom:auto;transform-origin:center top}
+  .context-menu.utility-search.open{transform:translateY(0) scale(1)}
+}
+@media(min-width:600px) and (max-width:900px){
+  .context-menu.utility-settings,.context-menu.utility-create,.context-menu.utility-navigation{position:fixed;bottom:24px;top:auto!important;width:300px;min-width:300px;border-radius:24px;transform-origin:bottom}
+  .context-menu.utility-settings{left:24px!important;transform-origin:left bottom}.context-menu.utility-create{right:24px;left:auto!important;transform-origin:right bottom}
+  .context-menu.utility-settings.open,.context-menu.utility-create.open{transform:translateY(0) scale(1)}
+  .context-menu.utility-settings button,.context-menu.utility-create button{height:46px;font-size:13px}
+}
+
+/* Native rows carry an icon, a flexible label, and an optional trailing value. */
+.context-menu.utility-settings button,.context-menu.utility-create button{display:flex;align-items:center;gap:12px}
+.context-menu.utility-settings button>.ui-icon,.context-menu.utility-create button>.ui-icon{width:20px;height:20px;flex:0 0 20px;color:#343943}
+.context-menu.utility-settings button>small,.context-menu.utility-create button>small{margin-left:auto;color:#858a94;font-size:12px;font-weight:500;white-space:nowrap}
+.context-menu.utility-settings button>.context-trailing,.context-menu.utility-create button>.context-trailing{flex:0 0 auto!important;margin-left:auto;color:#858a94;font-size:20px;line-height:1}
+.context-menu.utility-settings .context-separator,.context-menu.utility-create .context-separator{height:1px;margin:8px 8px;background:rgba(74,79,90,.12)}
+
 
 /* Spatial custom modal / image edit sheet */
 .spatial-modal-root{position:fixed;inset:0;z-index:120;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .18s ease}
@@ -536,6 +573,87 @@ body.spatial-modal-open{overflow:hidden}
   .link-embed-chrome button span{display:none}
 }
 
+/* Link panels are immersive browser surfaces: the page fills the panel, while
+   navigation/reload controls stay available as a quiet hover affordance. */
+.panel-viewer.is-link{background:#0b0d12}
+.panel-viewer.is-link .panel-viewer-shell.link-immersive-shell{
+  display:block;
+  height:100%;
+  padding:0;
+}
+.panel-viewer.is-link .panel-viewer-shell.link-immersive-shell .panel-content{
+  width:100%;
+  height:100%;
+  min-height:0;
+  padding:0;
+  display:block;
+}
+.panel-viewer.is-link .link-immersive-shell,
+.panel-viewer.is-link .link-immersive-shell .panel-content,
+.panel-viewer.is-link .link-embed-panel,
+.panel-viewer.is-link .link-embed-stage,
+.panel-viewer.is-link .link-embed-frame{
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+}
+.panel-viewer.is-link .link-embed-panel{
+  width:100%;
+  height:100%;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+}
+.panel-viewer.is-link .link-embed-stage{height:100%}
+.panel-viewer.is-link .link-embed-frame{display:block;max-width:none;max-height:none}
+.panel-viewer.is-link .panel-back{
+  left:18px;
+  top:18px;
+  z-index:4;
+  color:#f4f6fa;
+  background:rgba(18,21,28,.72);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.panel-viewer.is-link .panel-back:hover{background:rgba(45,51,62,.88)}
+.panel-viewer.is-link .link-embed-tools{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:3;
+  display:flex;
+  gap:7px;
+  padding:6px;
+  border-radius:15px;
+  background:rgba(18,21,28,.72);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 8px 24px rgba(0,0,0,.2);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  opacity:0;
+  transform:translateY(-4px);
+  transition:opacity .18s ease,transform .18s ease;
+}
+.panel-viewer.is-link .link-embed-panel:hover .link-embed-tools,
+.panel-viewer.is-link .link-embed-tools:focus-within{opacity:1;transform:none}
+.panel-viewer.is-link .link-embed-tools button{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  color:#e7ebf1;
+  background:rgba(255,255,255,.07);
+}
+.panel-viewer.is-link .link-embed-tools button:hover{background:rgba(255,255,255,.17);color:#fff}
+.panel-viewer.is-link .link-embed-tools .ui-icon{width:17px;height:17px}
+@media(max-width:780px){
+  .panel-viewer.is-link .panel-back{left:12px;top:12px}
+  .panel-viewer.is-link .link-embed-tools{top:12px;right:12px;opacity:.92;transform:none}
+}
+
 /* ——— Connection ports & edges ——— */
 .edges-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1}
 .edge-line{stroke:#8b93a7;stroke-width:2.2;stroke-linecap:round;fill:none;pointer-events:none;opacity:.92}
@@ -732,6 +850,46 @@ body.mouse-alt-drag .canvas-card.dragging{cursor:grabbing!important}
 @media(max-width:780px){#mouse-mode-toggle{bottom:100px;height:46px;padding:4px}#mouse-mode-toggle button{height:36px;min-width:72px;padding:0 12px}#mouse-mode-toggle button span{display:inline}}
 @media(prefers-reduced-motion:reduce){#mouse-mode-toggle button,body.mouse-mode-click .canvas-card::after{transition:none!important}}
 
+/* Inline link cards: show the linked page before the immersive panel opens. */
+.link-card{
+  min-height:170px;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#11151d;
+  border:1px solid rgba(42,50,66,.22);
+}
+.link-card .link-inline-preview{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius:inherit;
+  background:linear-gradient(145deg,#edf1f8,#dce4f0);
+}
+.link-card .link-inline-frame{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#fff;
+  pointer-events:none;
+  transform:translateZ(0);
+}
+.link-card .link-inline-loading,
+.link-card .link-inline-empty{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  color:#7e899c;
+  font-size:11px;
+  letter-spacing:.01em;
+  background:linear-gradient(145deg,#edf1f8,#dce4f0);
+}
+.link-card .link-inline-loading[hidden],
+.link-card .link-inline-empty[hidden]{display:none!important}
+
 /* TodoList grab area stays separate from the editable checklist. */
 .todo-drag-handle{height:16px;flex:0 0 16px;display:grid;place-items:center;background:#fbfbfd}
 .todo-drag-handle span{width:26px;height:3px;border-radius:4px;background:#dce0e9}
@@ -828,3 +986,8 @@ body.mouse-alt-drag .card-pin{cursor:move}
 .pin-card.dragging{cursor:grabbing!important}
 .context-pin{background:#f8e9e4;color:#b26456}
 body.connecting .edge-hit{pointer-events:none}
+/* Trackpad-friendly canvas gestures */
+.canvas-wrap{touch-action:none;overscroll-behavior:none;cursor:default}
+.canvas-wrap.is-panning{cursor:grabbing}
+body.mouse-mode-drag .canvas-wrap{cursor:grab}
+body.mouse-mode-drag .canvas-wrap.is-panning{cursor:grabbing}
