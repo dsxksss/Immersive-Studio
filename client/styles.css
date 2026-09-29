@@ -749,7 +749,7 @@ body.spatial-modal-open{overflow:hidden}
 /* Anchored folder preview: the original card stays available for double-click. */
 .folder-peek-root{position:fixed;inset:0;z-index:24;pointer-events:none;opacity:0;transition:opacity .18s ease}
 .folder-peek-root.open{opacity:1;pointer-events:none}
-.folder-peek-panel{position:absolute;width:min(480px,calc(100vw - 24px));padding:18px 20px 14px;border-radius:24px;background:rgba(250,251,252,.94);border:1px solid rgba(255,255,255,.96);box-shadow:0 26px 70px #252f4330,0 4px 12px #252f4312;backdrop-filter:blur(24px);color:#303844;pointer-events:none;transform-origin:var(--origin-x,50%) var(--origin-y,100%)}
+.folder-peek-panel{position:absolute;width:min(480px,calc(100vw - 24px));max-height:calc(100vh - 102px);display:flex;flex-direction:column;padding:18px 20px 14px;border-radius:24px;background:rgba(250,251,252,.94);border:1px solid rgba(255,255,255,.96);box-shadow:0 26px 70px #252f4330,0 4px 12px #252f4312;backdrop-filter:blur(24px);color:#303844;pointer-events:none;transform-origin:var(--origin-x,50%) var(--origin-y,100%)}
 .folder-peek-root.open .folder-peek-panel{pointer-events:auto;animation:peekJuiceShell .48s cubic-bezier(.2,.8,.2,1) both}
 .folder-peek-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .folder-peek-kicker{font-size:10px;letter-spacing:.1em;color:#969da6;margin-bottom:5px}
@@ -757,6 +757,9 @@ body.spatial-modal-open{overflow:hidden}
 .folder-peek-close{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font-size:20px;color:#9299a2;background:#e9edf180}
 .folder-peek-close:hover{background:#dfe5ec;color:#303844}
 .folder-peek-stage{position:relative;height:182px;display:grid;place-items:center;isolation:isolate}
+.folder-peek-stage.is-grid{height:auto;min-height:0;max-height:min(46vh,370px);grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;place-items:stretch;align-content:start;overflow-y:auto;padding:10px 6px 14px;scrollbar-gutter:stable}
+.folder-peek-stage.is-grid .folder-peek-card{position:relative;left:auto;top:auto;width:100%;height:122px;z-index:auto;transform:none}
+.folder-peek-stage.is-grid .folder-peek-card:hover,.folder-peek-stage.is-grid .folder-peek-card:focus-visible,.folder-peek-stage.is-grid .folder-peek-card.is-picked{z-index:1;transform:translateY(-3px) scale(1.02)}
 .folder-peek-card{position:absolute;left:50%;top:50%;width:168px;height:122px;padding:0;background:none;border:0;cursor:pointer;z-index:calc(3 - var(--i));transform:translate(calc(-50% + var(--offset)*92px),calc(-50% + var(--offset)*var(--offset)*9px)) rotate(var(--rot));transition:transform .24s cubic-bezier(.2,.9,.25,1.3),filter .2s;outline:none}
 .folder-peek-face{height:100%;width:100%;overflow:hidden;border-radius:14px;background:#fff;border:3px solid #fff;box-shadow:0 12px 26px #25324724,0 2px 5px #25324714;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s}
 .folder-peek-root.open .folder-peek-face{animation:peekJuiceCard .64s both;animation-delay:calc(45ms + var(--i)*70ms)}

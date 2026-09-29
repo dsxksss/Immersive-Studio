@@ -944,25 +944,28 @@
   }
   function collectClipboardImageFiles(data: DataTransfer | null): File[] {
     if (!data) return [];
-    const out: File[] = [];
-    const seen = new Set<string>();
-    const push = (file: File | null | undefined) => {
-      if (!file || !file.type.startsWith("image/")) return;
-      const key = `${file.name}|${file.size}|${file.lastModified}|${file.type}`;
-      if (seen.has(key)) return;
-      seen.add(key);
-      out.push(file);
-    };
+    // `files` and `items` are two views of the same clipboard payload. In
+    // particular, getAsFile() may produce a new File with different metadata,
+    // so combining both lists creates two uploads for a single pasted image.
+    const files: File[] = [];
+    if (data.files) {
+      for (let i = 0; i < data.files.length; i++) {
+        const file = data.files[i];
+        if (file?.type.startsWith("image/")) files.push(file);
+      }
+    }
+    if (files.length) return files;
+    const items: File[] = [];
     if (data.items) {
       for (let i = 0; i < data.items.length; i++) {
         const item = data.items[i];
-        if (item.kind === "file" && item.type.startsWith("image/")) push(item.getAsFile());
+        if (item.kind === "file" && item.type.startsWith("image/")) {
+          const file = item.getAsFile();
+          if (file) items.push(file);
+        }
       }
     }
-    if (data.files) {
-      for (let i = 0; i < data.files.length; i++) push(data.files[i]);
-    }
-    return out;
+    return items;
   }
   async function readClipboardImagesAsync(): Promise<File[]> {
     if (!navigator.clipboard || typeof (navigator.clipboard as any).read !== "function") return [];
@@ -1511,10 +1514,26 @@
     if (!targets.length) return;
     const minX = Math.min(...targets.map((o) => o.x));
     const minY = Math.min(...targets.map((o) => o.y));
+    const width = Math.max(...targets.map((o) => o.x + o.width)) - minX;
+    const height = Math.max(...targets.map((o) => o.y + o.height)) - minY;
+    const movingIds = new Set(targets.map((o) => o.id));
+    const siblings = folderChildren(folderId).filter((o) => !movingIds.has(o.id));
+    const gap = 32;
+    const xCandidates = [80, ...siblings.map((o) => o.x + o.width + gap)].sort((a, b) => a - b);
+    const yCandidates = [80, ...siblings.map((o) => o.y + o.height + gap)].sort((a, b) => a - b);
+    const rowWidth = Math.max(1200, width + 80);
+    let placement = { x: 80, y: Math.max(80, ...yCandidates) };
+    outer: for (const y of yCandidates) {
+      for (const x of xCandidates) {
+        if (x + width > rowWidth) continue;
+        const overlaps = siblings.some((o) => x < o.x + o.width + gap && x + width + gap > o.x && y < o.y + o.height + gap && y + height + gap > o.y);
+        if (!overlaps) { placement = { x, y }; break outer; }
+      }
+    }
     targets.forEach((o) => {
       o.folderId = folderId;
-      o.x = o.x - minX + 80;
-      o.y = o.y - minY + 80;
+      o.x = o.x - minX + placement.x;
+      o.y = o.y - minY + placement.y;
     });
   }
   /**
@@ -1596,21 +1615,21 @@
     anchor?.classList.add('peek-origin');
     anchor?.setAttribute('aria-expanded', 'true');
     const children = folderChildren(folder.id);
-    const shown = children.slice(0, 3);
+    const grid = children.length > 3;
     const root = document.createElement('section');
     root.className = 'folder-peek-root';
     root.setAttribute('role', 'dialog');
     root.setAttribute('aria-label', t('folderPeekTitle'));
     root.dataset.folderId = folder.id;
-    const stack = shown.map((child, index) => {
-      const offset = index - (shown.length - 1) / 2;
+    const stack = children.map((child, index) => {
+      const offset = index - (children.length - 1) / 2;
       const label = escapeHtml(child.title || child.caption || kindLabel(child.kind));
-      return `<button type="button" class="folder-peek-card" data-peek-id="${escapeHtml(child.id)}" style="--i:${index};--offset:${offset};--rot:${offset * 9}deg" title="${label} · ${lang === 'zh' ? '双击打开' : 'Double-click to open'}" aria-label="${label}">${folderPeekThumb(child)}</button>`;
+      return `<button type="button" class="folder-peek-card" data-peek-id="${escapeHtml(child.id)}" style="--i:${Math.min(index, 3)};--offset:${offset};--rot:${offset * 9}deg" title="${label} · ${lang === 'zh' ? '双击打开' : 'Double-click to open'}" aria-label="${label}">${folderPeekThumb(child)}</button>`;
     }).join('');
     root.innerHTML = `<div class="folder-peek-panel">
       <div class="folder-peek-head"><div><div class="folder-peek-kicker">${lang === 'zh' ? '快速预览' : 'QUICK PEEK'} · ${children.length} ${t('items')}</div><h3>${escapeHtml(folder.title || t('folder'))}</h3></div><button class="folder-peek-close" type="button" data-peek-dismiss aria-label="${t('close')}">×</button></div>
-      <div class="folder-peek-stage">${stack || `<div class="folder-peek-empty">${t('folderPeekEmpty')}</div>`}</div>
-      <div class="folder-peek-actions"><span>${lang === 'zh' ? '双击卡片打开 · 最多预览 3 项' : 'Double-click a card · Up to 3 previews'}</span><button type="button" data-peek-enter>${t('openFolder')} ↗</button></div>
+      <div class="folder-peek-stage${grid ? ' is-grid' : ''}">${stack || `<div class="folder-peek-empty">${t('folderPeekEmpty')}</div>`}</div>
+      <div class="folder-peek-actions"><span>${grid ? (lang === 'zh' ? '滚动查看全部 · 双击卡片打开' : 'Scroll for all · Double-click to open') : (lang === 'zh' ? '双击卡片打开' : 'Double-click a card to open')}</span><button type="button" data-peek-enter>${t('openFolder')} ↗</button></div>
     </div>`;
     document.body.appendChild(root);
     const panel = root.querySelector<HTMLElement>('.folder-peek-panel')!;
@@ -2886,62 +2905,72 @@
     return { width, height };
   }
 
-  const IMAGE_UPLOAD_MAX_EDGE = 2048;
-  const IMAGE_UPLOAD_QUALITY = 0.82;
+  // The asset endpoint accepts up to 20 MiB. Keep every smaller image byte-for-
+  // byte intact, including PNG transparency and full-resolution photographs.
+  const IMAGE_UPLOAD_MAX_BYTES = 20 * 1024 * 1024;
 
-  function compressImageForUpload(file: File): Promise<File> {
-    return new Promise((resolve) => {
-      const type = (file.type || "").toLowerCase();
-      // Keep animated GIF / SVG as-is; skip tiny files.
-      if (type === "image/gif" || type === "image/svg+xml" || file.size < 350 * 1024) {
-        resolve(file);
-        return;
-      }
-      const url = URL.createObjectURL(file);
-      const img = new Image();
-      img.onload = () => {
-        try {
-          const w0 = img.naturalWidth || 0;
-          const h0 = img.naturalHeight || 0;
-          if (!w0 || !h0) { URL.revokeObjectURL(url); resolve(file); return; }
-          const scale = Math.min(1, IMAGE_UPLOAD_MAX_EDGE / Math.max(w0, h0));
-          const tw = Math.max(1, Math.round(w0 * scale));
-          const th = Math.max(1, Math.round(h0 * scale));
-          const canvas = document.createElement("canvas");
-          canvas.width = tw;
-          canvas.height = th;
-          const ctx = canvas.getContext("2d");
-          if (!ctx) { URL.revokeObjectURL(url); resolve(file); return; }
-          ctx.imageSmoothingEnabled = true;
-          ctx.imageSmoothingQuality = "high";
-          ctx.drawImage(img, 0, 0, tw, th);
-          const preferWebp = typeof (canvas as any).toBlob === "function";
-          const finish = (blob: Blob | null, mime: string, ext: string) => {
-            URL.revokeObjectURL(url);
-            if (!blob || blob.size >= file.size * 0.98) { resolve(file); return; }
+  async function compressImageForUpload(file: File): Promise<File> {
+    const type = (file.type || "").toLowerCase();
+    if (file.size <= IMAGE_UPLOAD_MAX_BYTES || type === "image/gif" || type === "image/svg+xml") return file;
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await new Promise<HTMLImageElement>((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error("image decode failed"));
+        image.src = url;
+      });
+      const w0 = img.naturalWidth;
+      const h0 = img.naturalHeight;
+      if (!w0 || !h0) return file;
+      const canvas = document.createElement("canvas");
+      if (typeof canvas.toBlob !== "function") return file;
+      // Stay at original resolution first. Only cap exceptionally large canvas
+      // surfaces to avoid exhausting memory before the encoder can run.
+      const initialScale = Math.min(1, 12000 / Math.max(w0, h0), Math.sqrt(64_000_000 / (w0 * h0)));
+      let smallest: Blob | null = null;
+      let smallestType = "";
+      for (const factor of [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]) {
+        const scale = initialScale * factor;
+        canvas.width = Math.max(1, Math.round(w0 * scale));
+        canvas.height = Math.max(1, Math.round(h0 * scale));
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return file;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const encodings: Array<[string, number]> = type === "image/png" || type === "image/bmp"
+          ? [["image/png", 1], ["image/webp", 0.98], ["image/webp", 0.94]]
+          : type === "image/jpeg" || type === "image/jpg"
+            ? [["image/jpeg", 0.97], ["image/webp", 0.98], ["image/jpeg", 0.93]]
+            : [["image/webp", 0.98], ["image/webp", 0.94]];
+        for (const [mime, quality] of encodings) {
+          const blob = await new Promise<Blob | null>((resolve) => {
+            try { canvas.toBlob(resolve, mime, quality); } catch { resolve(null); }
+          });
+          // Some browsers silently encode PNG when WebP is unavailable.
+          if (!blob || blob.type !== mime) continue;
+          if (!smallest || blob.size < smallest.size) { smallest = blob; smallestType = mime; }
+          if (blob.size <= IMAGE_UPLOAD_MAX_BYTES) {
             const base = (file.name || "image").replace(/\.[^.]+$/, "") || "image";
-            resolve(new File([blob], base + ext, { type: mime, lastModified: Date.now() }));
-          };
-          // Prefer JPEG for photos (much smaller than PNG); WebP when clearly smaller.
-          canvas.toBlob((webp) => {
-            if (webp && webp.size < file.size * 0.85 && webp.size < tw * th) {
-              // Also compare JPEG
-              canvas.toBlob((jpg) => {
-                if (jpg && jpg.size < webp.size) finish(jpg, "image/jpeg", ".jpg");
-                else finish(webp, "image/webp", ".webp");
-              }, "image/jpeg", IMAGE_UPLOAD_QUALITY);
-            } else {
-              canvas.toBlob((jpg) => finish(jpg, "image/jpeg", ".jpg"), "image/jpeg", IMAGE_UPLOAD_QUALITY);
-            }
-          }, "image/webp", IMAGE_UPLOAD_QUALITY);
-        } catch (_) {
-          try { URL.revokeObjectURL(url); } catch {}
-          resolve(file);
+            const ext = mime === "image/jpeg" ? ".jpg" : mime === "image/webp" ? ".webp" : ".png";
+            return new File([blob], base + ext, { type: mime, lastModified: file.lastModified });
+          }
         }
-      };
-      img.onerror = () => { try { URL.revokeObjectURL(url); } catch {} resolve(file); };
-      img.src = url;
-    });
+      }
+      // If the browser cannot reach the server limit, at least upload the
+      // smallest attempt rather than discarding a potentially valid preview.
+      if (smallest && smallest.size < file.size) {
+        const base = (file.name || "image").replace(/\.[^.]+$/, "") || "image";
+        const ext = smallestType === "image/jpeg" ? ".jpg" : smallestType === "image/webp" ? ".webp" : ".png";
+        return new File([smallest], base + ext, { type: smallestType, lastModified: file.lastModified });
+      }
+      return file;
+    } catch {
+      return file;
+    } finally {
+      URL.revokeObjectURL(url);
+    }
   }
 
   function uploadImageAssetWithProgress(
