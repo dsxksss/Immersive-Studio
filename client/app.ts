@@ -119,10 +119,10 @@
   let roomName = params.get("name") || (lang === "zh" ? "未命名空间" : "Untitled Space");
   const translations = {
       zh: {
-      joinEyebrow: "让想法拥有自己的空间", joinTitle: "一起创造\n下一件作品。", joinDescription: "在一张安静、无限的画布上，共同收集、整理和推进想法。", joinFoot: "为小团队与大问题而生", joinHeading: "加入空间", invited: "你受邀协作于", name: "你的昵称", namePlaceholder: "例如：小明", password: "房间密码", optional: "可选", passwordPlaceholder: "输入密码", enter: "进入空间", syncNote: "你的修改会与空间中的每个人实时同步。", canvasHint: "鼠标滚轮缩放 · 拖拽模式移动画布", createHere: "在这里创建", edit: "编辑内容", duplicate: "复制", delete: "删除", sticky: "便签", richText: "富文本", image: "图片", link: "链接", folder: "文件夹", trash: "回收站", restore: "恢复", emptyTrash: "清空回收站", artboard: "画板", items: "项", fit: "适配画布", invite: "复制邀请链接", language: "English", languageAction: "切换到 English", noteAdded: "已添加便签", documentAdded: "已添加文档", imageAdded: "已添加图片", linkAdded: "已添加链接", folderAdded: "已添加文件夹", artboardAdded: "已添加画板", copied: "邀请链接已复制", movedTrash: "已移入回收站", duplicated: "已复制", justNow: "刚刚", people: "人在线", onePerson: "1 人在线", newDocument: "新文档", writeTogether: "一起写点什么…", newVisual: "新视觉参考", newIdea: "一个新想法…", savedLink: "已保存链接", reference: "参考", imageCaptionPrompt: "输入图片说明", linkTitlePrompt: "输入链接标题", linkUrlPrompt: "输入链接地址", folderTitlePrompt: "输入文件夹名称", open: "打开面板", close: "关闭", back: "返回画布", moveIntoFolder: "已移入文件夹", folderEmpty: "文件夹为空", selectedCount: "已选择", selectionHint: "左键拖动可框选多个面板 · Ctrl/Cmd+G 建组/解组", panelInfo: "面板信息", resolution: "分辨率", filename: "文件名", date: "日期", createdOn: "创建于", dropIntoFolder: "拖入文件夹", incorrectPassword: "房间密码不正确", save: "保存", saved: "已保存，下次可从首页进入", savedRooms: "已保存的空间", saveSpace: "保存空间", untitledSpace: "未命名空间", cancel: "取消", apply: "应用", replaceImage: "替换图片", dropReplaceHint: "拖放新图片到此处替换", editImageTitle: "编辑图片", editLinkTitle: "编辑链接", editFolderTitle: "编辑文件夹", imageUpdated: "图片已更新", linkUpdated: "链接已更新", folderUpdated: "文件夹已更新", undone: "已撤回", redone: "已重做", nothingToUndo: "没有可撤回的操作", nothingToRedo: "没有可重做的操作", uploading: "上传中", uploadFailed: "上传失败", uploadRetry: "重试", p2pDirect: "直连", p2pRelay: "中继", captionLabel: "图片说明", linkTitleLabel: "链接标题", linkUrlLabel: "链接地址", folderTitleLabel: "文件夹名称", chooseImage: "选择图片", emptyArtboard: "空白画板", artboardEmptyHint: "打开后开始绘制", richTextDefault: "<h2>新文档</h2><p>一起写点什么…</p>", richTextSeed: "<h2>项目简报</h2><p>在这里共同推进想法，让故事慢慢成形。</p><p><strong>今天：</strong>收集参考、梳理结构，并分享第一版。</p>", switchWorkspace: "切换工作空间", workspaces: "工作空间", currentSpace: "当前空间", newWorkspace: "新建工作空间", openHome: "打开首页", noSavedSpaces: "暂无已保存的工作空间", saveCurrentHint: "可先保存当前空间，或新建一个", imagePasted: "已从剪贴板粘贴图片", noImageInClipboard: "剪贴板中没有图片", grouped: "已建组", ungrouped: "已解组", gridSnap: "网格吸附", gridSnapOn: "网格吸附：开", gridSnapOff: "网格吸附：关", alignLeft: "左对齐", alignCenterX: "水平居中", alignRight: "右对齐", alignTop: "顶对齐", alignCenterY: "垂直居中", alignBottom: "底对齐", distributeH: "水平分布", distributeV: "垂直分布", aligned: "已对齐", distributed: "已分布", tidyGrid: "一键整理", tidied: "已整理对齐", tidyNeedMore: "请先选择至少 2 个面板，或在画布上放置多张图片", openExternal: "新标签打开", reloadPage: "刷新", linkEmbedFailed: "此网站不允许嵌入预览", linkEmbedHint: "因安全策略无法在面板内显示，可在新标签中打开。", linkLoading: "加载网页…", todo: "待办", todoAdded: "已添加待办", todoTitle: "待办事项", todoItemPlaceholder: "添加事项…", todoEmpty: "暂无事项", todoEmptyHint: "在下方输入，按回车快速添加", connectHint: "从圆点拖到另一卡片可连接", edgeDeleted: "已删除连接", connected: "已连接", editLink: "编辑链接", linkDescLabel: "描述", moreActions: "更多操作", openFolder: "打开文件夹", folderPeekTitle: "文件夹内容", folderPeekHint: "双击或点下方按钮进入", folderPeekEmpty: "文件夹为空", mouseMode: "鼠标模式", mouseClick: "点击", mouseDrag: "拖拽", mouseModeClickOn: "鼠标：点击", mouseModeDragOn: "鼠标：拖拽", mouseModeHint: "Alt+拖拽可临时移动卡片"
+      joinEyebrow: "让想法拥有自己的空间", joinTitle: "一起创造\n下一件作品。", joinDescription: "在一张安静、无限的画布上，共同收集、整理和推进想法。", joinFoot: "为小团队与大问题而生", joinHeading: "加入空间", invited: "你受邀协作于", name: "你的昵称", namePlaceholder: "例如：小明", password: "房间密码", optional: "可选", passwordPlaceholder: "输入密码", enter: "进入空间", syncNote: "你的修改会与空间中的每个人实时同步。", canvasHint: "鼠标滚轮缩放 · 按住空格拖动画布 · 拖拽模式移动画布", createHere: "在这里创建", edit: "编辑内容", duplicate: "复制", delete: "删除", sticky: "便签", richText: "富文本", image: "图片", link: "链接", folder: "文件夹", trash: "回收站", restore: "恢复", emptyTrash: "清空回收站", artboard: "画板", items: "项", fit: "适配画布", invite: "复制邀请链接", language: "English", languageAction: "切换到 English", noteAdded: "已添加便签", documentAdded: "已添加文档", imageAdded: "已添加图片", linkAdded: "已添加链接", folderAdded: "已添加文件夹", artboardAdded: "已添加画板", copied: "邀请链接已复制", movedTrash: "已移入回收站", duplicated: "已复制", justNow: "刚刚", people: "人在线", onePerson: "1 人在线", newDocument: "新文档", writeTogether: "一起写点什么…", newVisual: "新视觉参考", newIdea: "一个新想法…", savedLink: "已保存链接", reference: "参考", imageCaptionPrompt: "输入图片说明", linkTitlePrompt: "输入链接标题", linkUrlPrompt: "输入链接地址", folderTitlePrompt: "输入文件夹名称", open: "打开面板", close: "关闭", back: "返回画布", moveIntoFolder: "已移入文件夹", folderEmpty: "文件夹为空", selectedCount: "已选择", selectionHint: "左键拖动可框选多个面板 · Ctrl/Cmd+G 建组/解组", panelInfo: "面板信息", resolution: "分辨率", filename: "文件名", date: "日期", createdOn: "创建于", dropIntoFolder: "拖入文件夹", incorrectPassword: "房间密码不正确", save: "保存", saved: "已保存，下次可从首页进入", savedRooms: "已保存的空间", saveSpace: "保存空间", untitledSpace: "未命名空间", cancel: "取消", apply: "应用", replaceImage: "替换图片", dropReplaceHint: "拖放新图片到此处替换", editImageTitle: "编辑图片", editLinkTitle: "编辑链接", editFolderTitle: "编辑文件夹", imageUpdated: "图片已更新", linkUpdated: "链接已更新", folderUpdated: "文件夹已更新", undone: "已撤回", redone: "已重做", nothingToUndo: "没有可撤回的操作", nothingToRedo: "没有可重做的操作", uploading: "上传中", uploadFailed: "上传失败", uploadRetry: "重试", p2pDirect: "直连", p2pRelay: "中继", captionLabel: "图片说明", linkTitleLabel: "链接标题", linkUrlLabel: "链接地址", folderTitleLabel: "文件夹名称", chooseImage: "选择图片", emptyArtboard: "空白画板", artboardEmptyHint: "打开后开始绘制", richTextDefault: "<h2>新文档</h2><p>一起写点什么…</p>", richTextSeed: "<h2>项目简报</h2><p>在这里共同推进想法，让故事慢慢成形。</p><p><strong>今天：</strong>收集参考、梳理结构，并分享第一版。</p>", switchWorkspace: "切换工作空间", workspaces: "工作空间", currentSpace: "当前空间", newWorkspace: "新建工作空间", openHome: "打开首页", noSavedSpaces: "暂无已保存的工作空间", saveCurrentHint: "可先保存当前空间，或新建一个", imagePasted: "已从剪贴板粘贴图片", noImageInClipboard: "剪贴板中没有图片", grouped: "已建组", ungrouped: "已解组", gridSnap: "网格吸附", gridSnapOn: "网格吸附：开", gridSnapOff: "网格吸附：关", alignLeft: "左对齐", alignCenterX: "水平居中", alignRight: "右对齐", alignTop: "顶对齐", alignCenterY: "垂直居中", alignBottom: "底对齐", distributeH: "水平分布", distributeV: "垂直分布", aligned: "已对齐", distributed: "已分布", tidyGrid: "一键整理", tidied: "已整理对齐", tidyNeedMore: "请先选择至少 2 个面板，或在画布上放置多张图片", openExternal: "新标签打开", reloadPage: "刷新", linkEmbedFailed: "此网站不允许嵌入预览", linkEmbedHint: "因安全策略无法在面板内显示，可在新标签中打开。", linkLoading: "加载网页…", todo: "待办", todoAdded: "已添加待办", todoTitle: "待办事项", todoItemPlaceholder: "添加事项…", todoEmpty: "暂无事项", todoEmptyHint: "在下方输入，按回车快速添加", connectHint: "从圆点拖到另一卡片可连接", edgeDeleted: "已删除连接", connected: "已连接", editLink: "编辑链接", linkDescLabel: "描述", moreActions: "更多操作", openFolder: "打开文件夹", folderPeekTitle: "文件夹内容", folderPeekHint: "双击或点下方按钮进入", folderPeekEmpty: "文件夹为空", mouseMode: "鼠标模式", mouseClick: "点击", mouseDrag: "拖拽", mouseModeClickOn: "鼠标：点击", mouseModeDragOn: "鼠标：拖拽", mouseModeHint: "Alt+拖拽可临时移动卡片 · 按住空格移动画布"
     },
     en: {
-      joinEyebrow: "A shared space for ideas", joinTitle: "Make room for\nwhat’s next.", joinDescription: "Gather, shape and move ideas together — in one calm, infinite canvas.", joinFoot: "Built for small teams with big questions", joinHeading: "Join a space", invited: "You’re invited to collaborate in", name: "Your name", namePlaceholder: "e.g. Sam", password: "Room password", optional: "optional", passwordPlaceholder: "Enter password", enter: "Enter space", syncNote: "Your changes sync live with everyone here.", canvasHint: "Mouse wheel zooms · Drag mode pans the canvas", createHere: "Create in this space", edit: "Edit content", duplicate: "Duplicate", delete: "Delete", sticky: "Sticky note", richText: "Rich text", image: "Image", link: "Link", folder: "Folder", trash: "Trash", restore: "Restore", emptyTrash: "Empty trash", artboard: "Artboard", items: "items", fit: "Fit canvas", invite: "Copy invite link", language: "中文", languageAction: "Switch to 中文", noteAdded: "Sticky note added", documentAdded: "Document added", imageAdded: "Image added", linkAdded: "Link added", folderAdded: "Folder added", artboardAdded: "Artboard added", copied: "Invite link copied", movedTrash: "Moved to trash", duplicated: "Duplicated", justNow: "just now", people: "people here", onePerson: "1 person here", newDocument: "New document", writeTogether: "Write something together…", newVisual: "New visual reference", newIdea: "A new idea…", savedLink: "Saved link", reference: "Reference", imageCaptionPrompt: "Enter image caption", linkTitlePrompt: "Enter link title", linkUrlPrompt: "Enter link URL", folderTitlePrompt: "Enter folder name", open: "Open panel", close: "Close", back: "Back to canvas", moveIntoFolder: "Moved into folder", folderEmpty: "Folder is empty", selectedCount: "selected", selectionHint: "Left-drag to box-select · Ctrl/Cmd+G to group/ungroup", panelInfo: "Panel info", resolution: "Resolution", filename: "Filename", date: "Date", createdOn: "Created on", dropIntoFolder: "Drop into folder", incorrectPassword: "Incorrect room password", save: "Save", saved: "Saved — reopen from the home screen next time", savedRooms: "Saved spaces", saveSpace: "Save space", untitledSpace: "Untitled Space", cancel: "Cancel", apply: "Apply", replaceImage: "Replace image", dropReplaceHint: "Drop a new image here to replace", editImageTitle: "Edit image", editLinkTitle: "Edit link", editFolderTitle: "Edit folder", imageUpdated: "Image updated", linkUpdated: "Link updated", folderUpdated: "Folder updated", undone: "Undone", redone: "Redone", nothingToUndo: "Nothing to undo", nothingToRedo: "Nothing to redo", uploading: "Uploading", uploadFailed: "Upload failed", uploadRetry: "Retry", p2pDirect: "Direct", p2pRelay: "Relay", captionLabel: "Caption", linkTitleLabel: "Link title", linkUrlLabel: "Link URL", folderTitleLabel: "Folder name", chooseImage: "Choose image", emptyArtboard: "Empty artboard", artboardEmptyHint: "Open to start drawing", richTextDefault: "<h2>New document</h2><p>Write something together…</p>", richTextSeed: "<h2>Project brief</h2><p>Build a calm, curious space where ideas can grow together.</p><p><strong>Today:</strong> gather references, shape the story, and share a first draft.</p>", switchWorkspace: "Switch workspace", workspaces: "Workspaces", currentSpace: "Current space", newWorkspace: "New workspace", openHome: "Open home", noSavedSpaces: "No saved workspaces yet", saveCurrentHint: "Save this space first, or create a new one", imagePasted: "Image pasted from clipboard", noImageInClipboard: "No image in clipboard", grouped: "Grouped", ungrouped: "Ungrouped", gridSnap: "Grid snap", gridSnapOn: "Grid snap: On", gridSnapOff: "Grid snap: Off", alignLeft: "Align left", alignCenterX: "Align center", alignRight: "Align right", alignTop: "Align top", alignCenterY: "Align middle", alignBottom: "Align bottom", distributeH: "Distribute horizontally", distributeV: "Distribute vertically", aligned: "Aligned", distributed: "Distributed", tidyGrid: "Tidy grid", tidied: "Tidied into a grid", tidyNeedMore: "Select at least 2 panels, or place multiple images on the canvas", openExternal: "Open in new tab", reloadPage: "Reload", linkEmbedFailed: "This site cannot be embedded", linkEmbedHint: "The site blocks embedding. Open it in a new tab instead.", linkLoading: "Loading page…", todo: "Todo", todoAdded: "Todo list added", todoTitle: "Todo list", todoItemPlaceholder: "Add a task…", todoEmpty: "No tasks yet", todoEmptyHint: "Type below and press Enter to add", connectHint: "Drag from a port to another card to connect", edgeDeleted: "Connection deleted", connected: "Connected", editLink: "Edit link", linkDescLabel: "Description", moreActions: "More actions", openFolder: "Open folder", folderPeekTitle: "Folder contents", folderPeekHint: "Double-click or use the button below to enter", folderPeekEmpty: "Folder is empty", mouseMode: "Mouse mode", mouseClick: "Click", mouseDrag: "Drag", mouseModeClickOn: "Mouse: Click", mouseModeDragOn: "Mouse: Drag", mouseModeHint: "Hold Alt to drag cards temporarily"
+      joinEyebrow: "A shared space for ideas", joinTitle: "Make room for\nwhat’s next.", joinDescription: "Gather, shape and move ideas together — in one calm, infinite canvas.", joinFoot: "Built for small teams with big questions", joinHeading: "Join a space", invited: "You’re invited to collaborate in", name: "Your name", namePlaceholder: "e.g. Sam", password: "Room password", optional: "optional", passwordPlaceholder: "Enter password", enter: "Enter space", syncNote: "Your changes sync live with everyone here.", canvasHint: "Mouse wheel zooms · Hold Space to pan · Drag mode pans the canvas", createHere: "Create in this space", edit: "Edit content", duplicate: "Duplicate", delete: "Delete", sticky: "Sticky note", richText: "Rich text", image: "Image", link: "Link", folder: "Folder", trash: "Trash", restore: "Restore", emptyTrash: "Empty trash", artboard: "Artboard", items: "items", fit: "Fit canvas", invite: "Copy invite link", language: "中文", languageAction: "Switch to 中文", noteAdded: "Sticky note added", documentAdded: "Document added", imageAdded: "Image added", linkAdded: "Link added", folderAdded: "Folder added", artboardAdded: "Artboard added", copied: "Invite link copied", movedTrash: "Moved to trash", duplicated: "Duplicated", justNow: "just now", people: "people here", onePerson: "1 person here", newDocument: "New document", writeTogether: "Write something together…", newVisual: "New visual reference", newIdea: "A new idea…", savedLink: "Saved link", reference: "Reference", imageCaptionPrompt: "Enter image caption", linkTitlePrompt: "Enter link title", linkUrlPrompt: "Enter link URL", folderTitlePrompt: "Enter folder name", open: "Open panel", close: "Close", back: "Back to canvas", moveIntoFolder: "Moved into folder", folderEmpty: "Folder is empty", selectedCount: "selected", selectionHint: "Left-drag to box-select · Ctrl/Cmd+G to group/ungroup", panelInfo: "Panel info", resolution: "Resolution", filename: "Filename", date: "Date", createdOn: "Created on", dropIntoFolder: "Drop into folder", incorrectPassword: "Incorrect room password", save: "Save", saved: "Saved — reopen from the home screen next time", savedRooms: "Saved spaces", saveSpace: "Save space", untitledSpace: "Untitled Space", cancel: "Cancel", apply: "Apply", replaceImage: "Replace image", dropReplaceHint: "Drop a new image here to replace", editImageTitle: "Edit image", editLinkTitle: "Edit link", editFolderTitle: "Edit folder", imageUpdated: "Image updated", linkUpdated: "Link updated", folderUpdated: "Folder updated", undone: "Undone", redone: "Redone", nothingToUndo: "Nothing to undo", nothingToRedo: "Nothing to redo", uploading: "Uploading", uploadFailed: "Upload failed", uploadRetry: "Retry", p2pDirect: "Direct", p2pRelay: "Relay", captionLabel: "Caption", linkTitleLabel: "Link title", linkUrlLabel: "Link URL", folderTitleLabel: "Folder name", chooseImage: "Choose image", emptyArtboard: "Empty artboard", artboardEmptyHint: "Open to start drawing", richTextDefault: "<h2>New document</h2><p>Write something together…</p>", richTextSeed: "<h2>Project brief</h2><p>Build a calm, curious space where ideas can grow together.</p><p><strong>Today:</strong> gather references, shape the story, and share a first draft.</p>", switchWorkspace: "Switch workspace", workspaces: "Workspaces", currentSpace: "Current space", newWorkspace: "New workspace", openHome: "Open home", noSavedSpaces: "No saved workspaces yet", saveCurrentHint: "Save this space first, or create a new one", imagePasted: "Image pasted from clipboard", noImageInClipboard: "No image in clipboard", grouped: "Grouped", ungrouped: "Ungrouped", gridSnap: "Grid snap", gridSnapOn: "Grid snap: On", gridSnapOff: "Grid snap: Off", alignLeft: "Align left", alignCenterX: "Align center", alignRight: "Align right", alignTop: "Align top", alignCenterY: "Align middle", alignBottom: "Align bottom", distributeH: "Distribute horizontally", distributeV: "Distribute vertically", aligned: "Aligned", distributed: "Distributed", tidyGrid: "Tidy grid", tidied: "Tidied into a grid", tidyNeedMore: "Select at least 2 panels, or place multiple images on the canvas", openExternal: "Open in new tab", reloadPage: "Reload", linkEmbedFailed: "This site cannot be embedded", linkEmbedHint: "The site blocks embedding. Open it in a new tab instead.", linkLoading: "Loading page…", todo: "Todo", todoAdded: "Todo list added", todoTitle: "Todo list", todoItemPlaceholder: "Add a task…", todoEmpty: "No tasks yet", todoEmptyHint: "Type below and press Enter to add", connectHint: "Drag from a port to another card to connect", edgeDeleted: "Connection deleted", connected: "Connected", editLink: "Edit link", linkDescLabel: "Description", moreActions: "More actions", openFolder: "Open folder", folderPeekTitle: "Folder contents", folderPeekHint: "Double-click or use the button below to enter", folderPeekEmpty: "Folder is empty", mouseMode: "Mouse mode", mouseClick: "Click", mouseDrag: "Drag", mouseModeClickOn: "Mouse: Click", mouseModeDragOn: "Mouse: Drag", mouseModeHint: "Hold Alt to drag cards · hold Space to pan the canvas"
     }
   };
   type TranslationKey = keyof typeof translations.zh;
@@ -173,6 +173,22 @@
     try { localStorage.setItem(MOUSE_MODE_KEY, mouseMode); } catch {}
     syncMouseModeUi();
   }
+  let spacePanActive = false;
+  function setSpacePanActive(next: boolean): void {
+    spacePanActive = next;
+    document.body.classList.toggle("space-pan-active", next);
+  }
+  function isSpacePanPointerTarget(target: EventTarget | null): boolean {
+    const node = target as Element | null;
+    return !!node?.closest?.("input,button,textarea,select,a,[contenteditable=true],.rich-editor,.format-bar,.fmt-btn,.resize-handle,.conn-port,.todo-item,.todo-check,.todo-item-text,.todo-add-input,.todo-add-row,.todo-title,.todo-item-remove,.todo-list,.todo-empty,.todo-header,.todo-progress");
+  }
+  function isSpacePanKeyboardTarget(target: EventTarget | null): boolean {
+    const node = target as Element | null;
+    return !!node?.closest?.("input,button,textarea,select,a,[contenteditable=true],[role=button],[role=menuitem],.todo-item-text,.todo-add-input,.todo-title");
+  }
+  function isSpaceKey(event: KeyboardEvent): boolean {
+    return event.code === "Space" || event.key === " " || event.key === "Spacebar";
+  }
   function syncMouseModeUi(): void {
     document.body.classList.toggle("mouse-mode-click", mouseMode === "click");
     document.body.classList.toggle("mouse-mode-drag", mouseMode === "drag");
@@ -193,6 +209,13 @@
   let suppressCardClick = false;
   let lastFolderTap = { id: "", time: 0 };
   let drag: DragState = null;
+  function cancelPanGesture(): void {
+    if (!drag?.pan) return;
+    drag = null;
+    pendingCardTap = null;
+    suppressCardClick = true;
+    document.querySelector("#canvas-wrap")?.classList.remove("is-panning");
+  }
   let selectionDrag: { sx: number; sy: number } | null = null;
   let openPanelId: string | null = null;
   let openedFolderId: string | null = null;
@@ -554,12 +577,22 @@
       syncMouseModeUi();
     }
     wrap!.addEventListener("contextmenu", (e: any) => { e.preventDefault(); const hit = document.elementFromPoint(e.clientX, e.clientY); const card = (hit && hit.closest(".canvas-card")) || (e.target as Element | null)?.closest?.(".canvas-card"); if (card) selected = (card as HTMLElement).dataset.id; const rect = wrap.getBoundingClientRect(); contextPoint = { x: (e.clientX - rect.left - view.x) / view.scale, y: (e.clientY - rect.top - view.y) / view.scale }; showContextMenu(e.clientX, e.clientY, card ? objects.find(o => o.id === (card as HTMLElement).dataset.id) || null : null); if (card) renderObjects(); });
+    const beginCanvasPan = (e: any): void => {
+      e.preventDefault();
+      drag = { pan: true, sx: e.clientX, sy: e.clientY, ox: view.x, oy: view.y };
+      wrap.classList.add("is-panning");
+      wrap.setPointerCapture(e.pointerId);
+    };
+    // Space temporarily turns the whole canvas, including cards, into a pan surface.
+    // Capture it before card handlers stop propagation so the gesture also works over cards.
+    wrap!.addEventListener("pointerdown", (e: any) => {
+      if (e.button !== 0 || !spacePanActive || isSpacePanPointerTarget(e.target) || !wrap.contains(e.target as Node)) return;
+      beginCanvasPan(e);
+      e.stopPropagation();
+    }, true);
     wrap!.addEventListener("pointerdown", (e: any) => {
       if (e.button === 1 || (e.button === 0 && (mouseMode === "drag" || e.pointerType === "touch") && isCanvasTarget(e.target))) {
-        e.preventDefault();
-        drag = { pan: true, sx: e.clientX, sy: e.clientY, ox: view.x, oy: view.y };
-        wrap.classList.add("is-panning");
-        wrap.setPointerCapture(e.pointerId);
+        beginCanvasPan(e);
         return;
       }
       if (e.button !== 0) return;
@@ -643,7 +676,7 @@
       wrap.classList.remove("is-panning"); clearSnapGuides();
       if (connDrag) { finishConnDrag(e); pendingCardTap = null; return; }
       if (drag?.selection) { finishSelection(); pendingCardTap = null; return; }
-      if (drag?.pan) { drag = null; pendingCardTap = null; return; }
+      if (drag?.pan) { suppressCardClick = true; drag = null; pendingCardTap = null; return; }
       if (drag?.card || drag?.group) updateDropTarget(e, new Set(drag.group ? drag.items.map(item => item.object.id) : [drag.card.id]));
       // folder-juice-v1: one release handler; anchored preview leaves the folder available for a second tap.
       const tap = pendingCardTap?.pointerId === e.pointerId ? pendingCardTap : null;
@@ -696,7 +729,7 @@
       wrap.classList.remove("is-panning"); clearSnapGuides();
       pendingCardTap = null;
       if (connDrag) { connDrag = null; document.body.classList.remove("connecting"); renderEdges(); return; }
-      if (drag?.selection) finishSelection(); else if (drag?.group || drag?.card || drag?.resize) finishDrag(true); else drag = null;
+      if (drag?.selection) finishSelection(); else if (drag?.group || drag?.card || drag?.resize) finishDrag(true); else if (drag?.pan) { suppressCardClick = true; drag = null; } else drag = null;
     });
     // Consume only the trailing click of this gesture, including after a drag.
     // A fresh pointerdown starts a new gesture and must never be swallowed.
@@ -765,6 +798,18 @@
       const clickTarget = e.target as Node | null; if (!clickTarget || !clickTarget.isConnected || menu!.contains(clickTarget) || (clickTarget as Element).closest?.(".context-menu")) return;
       hideContextMenu();
     }, { signal });
+    // Hold Space to pan without changing the user's persistent mouse mode.
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (!isSpaceKey(e) || isSpacePanKeyboardTarget(e.target) || e.isComposing) return;
+      e.preventDefault();
+      e.stopPropagation();
+      setSpacePanActive(true);
+    }, { capture: true, signal });
+    document.addEventListener("keyup", (e: KeyboardEvent) => {
+      if (!isSpaceKey(e)) return;
+      if (!isSpacePanKeyboardTarget(e.target)) e.preventDefault();
+      setSpacePanActive(false);
+    }, { capture: true, signal });
     document.addEventListener("keydown", (e: any) => {
       const editing = (e.target as Element | null)?.closest?.("textarea,input,[contenteditable=true],.todo-item-text");
       const mod = e.ctrlKey || e.metaKey;
@@ -782,6 +827,7 @@
       if (e.key === "Escape") {
         if (pinDrag) { e.preventDefault(); finishPinDrag(true); return; }
         if (connDrag) { e.preventDefault(); connDrag = null; document.body.classList.remove("connecting"); renderEdges(); return; }
+        if (drag?.pan) { e.preventDefault(); cancelPanGesture(); setSpacePanActive(false); return; }
         if (drag?.card || drag?.group || drag?.resize) { e.preventDefault(); pendingCardTap = null; finishDrag(true); return; }
         if (document.querySelector(".spatial-modal-root.open")) { e.preventDefault(); closeSpatialModal(); return; }
         if (document.querySelector(".folder-peek-root.open")) { e.preventDefault(); hideFolderPeek(); return; }
@@ -3768,7 +3814,7 @@
         collaborationReady = false;
         richPending.clear(); richTitlePending.clear();
         if (panelOpenTimer) { clearTimeout(panelOpenTimer); panelOpenTimer = null; }
-        drag = null; pendingCardTap = null; connDrag = null; pinDrag = null; hideFolderExit();
+        cancelPanGesture(); drag = null; pendingCardTap = null; connDrag = null; pinDrag = null; hideFolderExit();
         document.body.classList.remove("connecting"); renderEdges();
         teardownAllPeers();
         fail();
@@ -3811,7 +3857,7 @@
 
   window.addEventListener('keydown', e => { if (e.key === 'Alt') document.body.classList.add('mouse-alt-drag'); });
   window.addEventListener('keyup', e => { if (e.key === 'Alt') document.body.classList.remove('mouse-alt-drag'); });
-  window.addEventListener('blur', () => document.body.classList.remove('mouse-alt-drag'));
+  window.addEventListener('blur', () => { document.body.classList.remove('mouse-alt-drag'); setSpacePanActive(false); cancelPanGesture(); });
   window.addEventListener("beforeunload", () => {
     (document.activeElement as HTMLElement | null)?.matches("#panel-viewer.is-rich .doc-title") && (document.activeElement as HTMLElement).blur();
     for (const object of objects) if (object.kind === "richText") flushRichDraft(object);

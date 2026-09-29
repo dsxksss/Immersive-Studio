@@ -850,6 +850,13 @@ body.mouse-mode-click:not(.mouse-alt-drag) .canvas-card:hover::after{opacity:1;t
 body.mouse-mode-click:not(.mouse-alt-drag) .canvas-card.peek-origin::after{opacity:0}
 body.mouse-alt-drag .canvas-card{cursor:grab!important}
 body.mouse-alt-drag .canvas-card.dragging{cursor:grabbing!important}
+/* Hold Space to temporarily pan in either mouse mode. */
+body.space-pan-active .canvas-wrap{cursor:grab!important}
+body.space-pan-active .canvas-wrap.is-panning{cursor:grabbing!important}
+body.space-pan-active .canvas-card{cursor:grab!important}
+body.space-pan-active .canvas-card.dragging{cursor:grabbing!important}
+.canvas-wrap.is-panning .canvas-card{cursor:grabbing!important}
+body.space-pan-active .canvas-card::after{opacity:0!important}
 @media(max-width:780px){#mouse-mode-toggle{bottom:100px;height:46px;padding:4px}#mouse-mode-toggle button{height:36px;min-width:72px;padding:0 12px}#mouse-mode-toggle button span{display:inline}}
 @media(prefers-reduced-motion:reduce){#mouse-mode-toggle button,body.mouse-mode-click .canvas-card::after{transition:none!important}}
 
